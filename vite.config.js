@@ -13,9 +13,11 @@ export default defineConfig({
       exposes: {
         './Ratings': './src/components/Ratings/index.jsx',
         './Inputs': '/src/components/Inputs/index.js',
-        './Components': '/src/components/index.js'
+        './Components': '/src/components/index.js',
+        './Droppable': '/src/components/Droppable/index.jsx',
+        './Draggable': '/src/components/Draggable/index.jsx',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', '@dnd-kit/core'],
     }),
   ],
   server: {
