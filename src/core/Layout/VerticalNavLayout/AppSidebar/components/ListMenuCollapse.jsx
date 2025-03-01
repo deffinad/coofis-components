@@ -20,7 +20,8 @@ const ListMenuCollapse = ({ item, level }) => {
         direction: 'row',
         alignItems: 'center',
         borderRadius: '10px',
-        padding: level > 1 ? level : '',
+        padding: level > 1 ? 1 : '',
+        paddingLeft: level > 2 ? level * 2 : '',
         justifyContent: 'space-between',
     }
 
@@ -29,7 +30,7 @@ const ListMenuCollapse = ({ item, level }) => {
             <ListItem onClick={handleToggleMenu} sx={sxStyle}>
                 <Stack direction={'row'} gap={2} alignItems={'center'}>
                     <Stack direction={'row'} gap={2} alignItems={'center'}>
-                        <IconComponent />
+                        {item.icon && <IconComponent />}
                         <Stack direction={'column'}>
                             <Typography sx={{ color: 'white', fontWeight: '' }}>{item.title}</Typography>
                         </Stack>

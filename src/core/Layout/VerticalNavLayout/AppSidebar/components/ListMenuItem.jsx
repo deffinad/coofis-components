@@ -16,15 +16,15 @@ const ListMenuItem = ({ item, level }) => {
         justifyContent: 'space-between',
         alignItems: 'center',
         borderRadius: '10px',
-        padding: level > 1 ? 2 : '',
-        paddingLeft: level > 1 ? level + 1 : '',
+        padding: level > 1 ? 1 : '',
+        paddingLeft: level > 2 ? level * 2 : '',
         background: pathname === item.activePathname ? '#333232a1' : ''
     }
 
     return (
         <ListItem sx={sxStyle}>
             <Stack direction={'row'} gap={2} alignItems={'center'}>
-                <IconComponent />
+                {item.icon && <IconComponent />}
                 <Stack direction={'column'}>
                     <Typography sx={{ color: 'white', fontWeight: pathname === item.activePathname ? 600 : '' }}>{item.title}</Typography>
                     {item.sub_title && <Typography sx={{ color: 'white', fontWeight: 500, fontSize: 13 }}>{item.sub_title}</Typography>}
