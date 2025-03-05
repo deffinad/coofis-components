@@ -14,6 +14,7 @@ export default defineConfig({
         './Ratings': './src/components/Ratings/index.jsx',
         './Inputs': '/src/components/Inputs/index.js',
         './Menu': '/src/components/Menu/index.js',
+        './Layout': '/src/components/Layout/index.js',
         './Components': '/src/components/index.js',
       },
       shared: ['react', 'react-dom'],
