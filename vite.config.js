@@ -12,8 +12,8 @@ export default defineConfig({
       //Module Expose
       exposes: {
         './Ratings': './src/components/Ratings/index.jsx',
+        './Navbar': '/src/components/Navbar/index.jsx',
         './Inputs': '/src/components/Inputs/index.js',
-        './Menu': '/src/components/Menu/index.js',
         './Layout': '/src/components/Layout/index.js',
         './Components': '/src/components/index.js',
       },
