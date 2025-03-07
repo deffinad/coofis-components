@@ -1,11 +1,7 @@
 import { default as Ratings } from './Ratings';
-import * as Input from './Inputs'
-import { default as Droppable } from './Droppable';
-import { default as Draggable } from './Draggable';
+import { default as InputField } from './Inputs/InputField';
 
 export const Components = {
     Ratings,
-    Input,
-    Droppable,
-    Draggable
+    InputField,
 }

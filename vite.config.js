@@ -11,13 +11,9 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       //Module Expose
       exposes: {
-        './Ratings': './src/components/Ratings/index.jsx',
-        './Inputs': '/src/components/Inputs/index.js',
         './Components': '/src/components/index.js',
-        './Droppable': '/src/components/Droppable/index.jsx',
-        './Draggable': '/src/components/Draggable/index.jsx',
       },
-      shared: ['react', 'react-dom', '@dnd-kit/core'],
+      shared: ['react', 'react-dom'],
     }),
   ],
   server: {
