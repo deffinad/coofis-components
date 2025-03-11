@@ -8,7 +8,7 @@ export const navbarListConfig = [
       "type": "internal", // internal, external, devider
       "title": "Home",
       "sub_title": "Home Page",
-      "icon": "fa fa-home",
+      "icon": "Home",
       "image_icon": "png file URI",
       "image_icon_xs": "",
       "image_icon_sm": "",
@@ -28,7 +28,7 @@ export const navbarListConfig = [
       "type": "external", // internal, external, devider
       "title": "Peta",
       "sub_title": "Peta Sebaran",
-      "icon": "fa fa-home",
+      "icon": "Map",
       "image_icon": "png file URI",
       "image_icon_xs": "",
       "image_icon_sm": "",
