@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Typography, IconButton } from '@mui/material';
+import { Stack, Typography, IconButton, Tooltip } from '@mui/material';
 import * as MUIIcons from '@mui/icons-material';
 import { navbarListConfig } from '../navbarLayoutConfig';
 
@@ -14,15 +14,26 @@ const Navbar = () => {
                 {navbarListConfig.map((menu, index) => {
                        const IconComponent = MUIIcons[menu.icon];
                     
-                    return menu.type === 'external' ? (
-                        <IconButton key={menu.id} sx={{ color: 'white' }} onClick={() => window.open(menu.external_url, '_blank')}>
-                            <IconComponent fontSize='medium' />
-                        </IconButton>
-                    ) : (
-                        <IconButton key={menu.id} sx={{ color: 'white' }}>
-                            <IconComponent fontSize='medium' />
-                        </IconButton>
-                    );
+                    if (menu.active) {
+                        return menu.clickable && menu.type === 'external' ? (
+                            <IconButton key={menu.id} sx={{ color: 'white' }} onClick={() => window.open(menu.external_url, '_blank')}>
+                                <IconComponent fontSize='medium' />
+                            </IconButton>
+                        ) : menu.clickable ? (
+                            <IconButton key={menu.id} sx={{ color: 'white' }}>
+                                <IconComponent fontSize='medium' />
+                            </IconButton>
+                        ) : (
+                            <Tooltip key={menu.id} title={menu.title} arrow>
+                                <span> 
+                                    <IconButton disabled sx={{ '&.Mui-disabled': { color: 'white'} }}>
+                                        <IconComponent fontSize='medium' />
+                                    </IconButton>
+                                </span>
+                            </Tooltip>
+                        );
+                    }
+                    
                 })}
             </Stack>
         </Stack>
