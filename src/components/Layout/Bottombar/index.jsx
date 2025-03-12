@@ -32,7 +32,7 @@ const Botbar = () => {
                             {botMenuListConfig.map((menu, index) => {
                                 let IconComponent = MUIIcons[menu.icon]
                                 return (
-                                    <Stack key={menu.id} py={1} px={2} direction={'row'} justifyContent={'flex-start'} alignItems={'center'} gap={2} sx={{ borderRadius: '10px', background: index == 0 ? '#333232a1' : '', cursor: 'pointer' }}>
+                                    <Stack key={menu.id} py={1} px={2} direction={'row'} justifyContent={'flex-start'} alignItems={'center'} gap={2} sx={{ borderRadius: '10px', cursor: 'pointer' }}>
                                         <IconComponent fontSize='medium' sx={{ color: 'white' }} />
                                         <Stack direction={'column'}>
                                             <Typography sx={{ color: 'white', fontWeight: index == 0 ? 600 : '' }}>{menu.title}</Typography>
