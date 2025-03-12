@@ -17,7 +17,7 @@ export const menuListConfig = [
         "external_url": "", // use only to launch external website
         "active": true, // show only when true
         "clickable": true, // if not then work for hover only
-        "type": "singular"
+        "type": "standard"
     },
     {
         "id": 2,
@@ -33,7 +33,7 @@ export const menuListConfig = [
         "external_url": "", // use only to launch external website
         "active": true,
         "clickable": true, // if not then work for hover only
-        "type": "singular"
+        "type": "standard"
     },
     {
         "id": 3,
@@ -49,6 +49,7 @@ export const menuListConfig = [
         "external_url": "", // use only to launch external website
         "active": true,
         "clickable": true, // if not then work for hover only
+        "type": "parent",
         "children": [
             {
                 "id": 3.1,
@@ -64,6 +65,7 @@ export const menuListConfig = [
                 "external_url": "", // use only to launch external website
                 "active": true,
                 "clickable": true, // if not then work for hover only
+                "type": "children"
             },
             {
                 "id": 3.2,
@@ -79,6 +81,7 @@ export const menuListConfig = [
                 "external_url": "", // use only to launch external website
                 "active": true,
                 "clickable": true, // if not then work for hover only
+                "type": "children"
             }
         ]
     }
