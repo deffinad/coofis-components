@@ -16,7 +16,8 @@ export const menuListConfig = [
         "image_cover": "",
         "external_url": "", // use only to launch external website
         "active": true, // show only when true
-        "clickable": true // if not then work for hover only
+        "clickable": true, // if not then work for hover only
+        "type": "singular"
     },
     {
         "id": 2,
@@ -31,7 +32,8 @@ export const menuListConfig = [
         "image_cover": "",
         "external_url": "", // use only to launch external website
         "active": true,
-        "clickable": true // if not then work for hover only
+        "clickable": true, // if not then work for hover only
+        "type": "singular"
     },
     {
         "id": 3,

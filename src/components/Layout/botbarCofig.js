@@ -26,8 +26,8 @@ export const botMenuListConfig = [
       "order": 1, // order based on parent_id
       "lang": "en",
       "type": "external", // internal, external, devider
-      "title": "Peta",
-      "sub_title": "Peta Sebaran",
+      "title": "Option",
+      "sub_title": "Option Menu",
       "icon": "LinkOutlined",
       "image_icon": "png file URI",
       "image_icon_xs": "",
