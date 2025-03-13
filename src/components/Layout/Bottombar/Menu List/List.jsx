@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Stack, Typography, Grid2 } from '@mui/material'
 import * as MUIIcons from '@mui/icons-material';
-import { menuListConfig } from '../../layoutConfig';
+import { menuListConfig } from '../../menuLayoutConfig';
 
 const ListMenu = () =>  {
     return(

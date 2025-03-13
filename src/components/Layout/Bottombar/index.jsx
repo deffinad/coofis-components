@@ -2,9 +2,10 @@ import React from 'react'
 import { Box, Stack, Typography, Grid2 } from '@mui/material'
 import * as MUIIcons from '@mui/icons-material';
 import { botMenuListConfig } from '../botbarCofig';
-import { menuListConfig } from '../layoutConfig'; 
+import { menuListConfig } from '../menuLayoutConfig'; 
 // import ListMenu from './Menu List/list';
-import ListMenu from './Menu List/ListTest';
+// import ListMenu from './Menu List/ListTest';
+import ListMenu from './Menu List/ListMenu';
 
 const Botbar = () => {
     return(

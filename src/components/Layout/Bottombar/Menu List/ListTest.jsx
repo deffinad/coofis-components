@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Stack, Typography, Menu, MenuItem } from '@mui/material';
 import * as MUIIcons from '@mui/icons-material';
-import { menuListConfig } from '../../layoutConfig';
+import { menuListConfig } from '../../menuLayoutConfig';
 
 const ListMenu = () => {
     const [anchorEl, setAnchorEl] = useState(null);
