@@ -54,11 +54,11 @@ const ListMenuCollapse = ({ item, level }) => {
                 anchorEl={anchorEl}
                 onClose={handleMouseLeave}
                 anchorOrigin={{
-                    vertical: 'center',
+                    vertical: 'top',
                     horizontal: 'right',
                   }}
                   transformOrigin={{
-                    vertical: 'center',
+                    vertical: 'bottom',
                     horizontal: 'left',
                   }}
                 sx={{
@@ -73,7 +73,7 @@ const ListMenuCollapse = ({ item, level }) => {
                 }}
                 disableRestoreFocus
             >
-                <Stack sx={{ p: 1 }} onMouseLeave={handleMouseLeave}>
+                <Stack sx={{ p: 2 }} spacing={2} onMouseLeave={handleMouseLeave}>
                     {item.children.map((childItem) => (
                         <React.Fragment key={childItem.id}>
                             {childItem.type === 'group' && <MenuGroup item={childItem} level={level + 1} />}

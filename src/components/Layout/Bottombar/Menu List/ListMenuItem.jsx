@@ -29,7 +29,7 @@ const ListMenuItem = ({ item, level }) => {
         borderRadius: '10px',
         // padding: level > 1 ? 1 : '8px 16px',
         // paddingLeft: level > 2 ? level * 2 : '',
-        backgroundColor: pathname === item.activePathname ? '#333232a1' : 'transparent',
+        // backgroundColor: pathname === item.activePathname ? '#333232a1' : 'transparent',
         textTransform: 'none',
         minWidth: 'unset',
         color: 'white'
@@ -55,11 +55,11 @@ const ListMenuItem = ({ item, level }) => {
                         )}
                     </Stack>
                 </Stack>
-                {item.count && (
+                {/* {item.count && (
                     <Box component="div" className="menu-badge">
                         {item.count}
                     </Box>
-                )}
+                )} */}
             </Button>
 
             {item.children && (
