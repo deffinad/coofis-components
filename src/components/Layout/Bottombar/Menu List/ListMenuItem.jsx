@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import * as MUIIcons from '@mui/icons-material';
 import { Box, Stack, Typography, Button, Popover } from '@mui/material';
 
-const ListMenuItem = ({ item, level }) => {
+const ListMenuItem = ({ item, level, currentLang }) => {
     const { pathname } = window.location;
     const [anchorEl, setAnchorEl] = React.useState(null);
 
-    let IconComponent = MUIIcons[item.icon];
+    let IconComponent = item.icon ? MUIIcons[item.icon] : null;
 
     const handleMouseEnter = (event) => {
         setAnchorEl(event.currentTarget);
@@ -16,23 +16,36 @@ const ListMenuItem = ({ item, level }) => {
     const handleMouseLeave = () => {
         setAnchorEl(null);
     };
+    
+    const handleClick = () => {
+        if (item.clickable) {
+            if (item.external_url) {
+                window.open(item.external_url, '_blank');
+            } else if (item.activePathname) {
+                window.location.href = item.activePathname;
+            }
+        }
+    };
 
     const open = Boolean(anchorEl);
-    const id = open ? `menu-item-popover-${item.id}` : undefined;
+    const id = open ? `menu-item-popover-${item.id}-${item.lang}` : undefined;
 
     const buttonStyle = {
-        cursor: 'pointer',
+        cursor: item.clickable ? 'pointer' : 'default',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         borderRadius: '10px',
-        // padding: level > 1 ? 1 : '8px 16px',
-        // paddingLeft: level > 2 ? level * 2 : '',
-        // backgroundColor: pathname === item.activePathname ? '#333232a1' : 'transparent',
+        padding: level > 1 ? 1 : '8px 16px',
+        paddingLeft: level > 2 ? `${level * 8}px` : '',
+        backgroundColor: pathname === item.activePathname ? '#333232a1' : 'transparent',
         textTransform: 'none',
         minWidth: 'unset',
-        color: 'white'
+        color: 'white',
+        '&:hover': {
+            backgroundColor: '#333232a1'
+        }
     };
 
     return (
@@ -41,9 +54,10 @@ const ListMenuItem = ({ item, level }) => {
                 sx={buttonStyle} 
                 aria-describedby={id}
                 component="div"
+                onClick={handleClick}
             >
                 <Stack direction="row" gap={2} alignItems="center">
-                    {item.icon && <IconComponent />}
+                    {IconComponent && <IconComponent />}
                     <Stack direction="column">
                         <Typography sx={{ color: 'white', fontWeight: pathname === item.activePathname ? 600 : '' }}>
                             {item.title}
@@ -55,14 +69,24 @@ const ListMenuItem = ({ item, level }) => {
                         )}
                     </Stack>
                 </Stack>
-                {/* {item.count && (
-                    <Box component="div" className="menu-badge">
+                {item.count && (
+                    <Box 
+                        component="div" 
+                        className="menu-badge"
+                        sx={{
+                            backgroundColor: 'primary.main',
+                            borderRadius: '10px',
+                            padding: '2px 8px',
+                            fontSize: '0.75rem',
+                            marginLeft: 1
+                        }}
+                    >
                         {item.count}
                     </Box>
-                )} */}
+                )}
             </Button>
 
-            {item.children && (
+            {item.children && item.children.length > 0 && (
                 <Popover
                     id={id}
                     open={open}
@@ -89,9 +113,17 @@ const ListMenuItem = ({ item, level }) => {
                     disableRestoreFocus
                 >
                     <Stack sx={{ p: 1 }} onMouseLeave={handleMouseLeave}>
-                        {item.children && item.children.map((childItem) => (
-                            <ListMenuItem key={childItem.id} item={childItem} level={level + 1} />
-                        ))}
+                        {item.children && item.children
+                            .filter(child => child.lang === currentLang)
+                            .map((childItem) => (
+                                <ListMenuItem 
+                                    key={`${childItem.id}-${childItem.lang}`} 
+                                    item={childItem} 
+                                    level={level + 1} 
+                                    currentLang={currentLang}
+                                />
+                            ))
+                        }
                     </Stack>
                 </Popover>
             )}
@@ -102,6 +134,7 @@ const ListMenuItem = ({ item, level }) => {
 ListMenuItem.propTypes = {
     item: PropTypes.object,
     level: PropTypes.number,
+    currentLang: PropTypes.string
 };
 
 export default ListMenuItem;

@@ -5,8 +5,8 @@ import * as MUIIcons from '@mui/icons-material';
 import { Stack, Typography, Button, Popover } from '@mui/material';
 import MenuGroup from './ListMenuGroup';
 
-const ListMenuCollapse = ({ item, level }) => {
-    let IconComponent = MUIIcons[item.icon];
+const ListMenuCollapse = ({ item, level, currentLang }) => {
+    let IconComponent = item.icon ? MUIIcons[item.icon] : null;
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleMouseEnter = (event) => {
@@ -18,7 +18,7 @@ const ListMenuCollapse = ({ item, level }) => {
     };
 
     const open = Boolean(anchorEl);
-    const id = open ? `menu-collapse-popover-${item.id}` : undefined;
+    const id = open ? `menu-collapse-popover-${item.id}-${item.lang}` : undefined;
 
     const buttonStyle = {
         cursor: 'pointer',
@@ -26,13 +26,21 @@ const ListMenuCollapse = ({ item, level }) => {
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: '10px',
-        // padding: level > 1 ? 1 : '8px 16px',
-        // paddingLeft: level > 2 ? level * 2 : '',
+        padding: level > 1 ? 1 : '8px 16px',
+        paddingLeft: level > 2 ? `${level * 8}px` : '',
         justifyContent: 'space-between',
         textTransform: 'none',
         minWidth: 'unset',
-        color: 'white'
+        color: 'white',
+        '&:hover': {
+            backgroundColor: '#333232a1'
+        }
     };
+
+    // Filter children by current language
+    const filteredChildren = item.children 
+        ? item.children.filter(child => child.lang === currentLang || !child.lang)
+        : [];
 
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -42,7 +50,7 @@ const ListMenuCollapse = ({ item, level }) => {
                 component="div"
             >
                 <Stack direction="row" gap={2} alignItems="center">
-                    {item.icon && <IconComponent />}
+                    {IconComponent && <IconComponent />}
                     <Typography sx={{ color: 'white' }}>{item.title}</Typography>
                 </Stack>
                 {open ? <MUIIcons.ChevronRight /> : <MUIIcons.ExpandMore />}
@@ -55,12 +63,12 @@ const ListMenuCollapse = ({ item, level }) => {
                 onClose={handleMouseLeave}
                 anchorOrigin={{
                     vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
+                    horizontal: 'center',
+                }}
+                transformOrigin={{
                     vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
+                    horizontal: 'center',
+                }}
                 sx={{
                     '& .MuiPopover-paper': {
                         background: '#1e1e1e',
@@ -73,12 +81,18 @@ const ListMenuCollapse = ({ item, level }) => {
                 }}
                 disableRestoreFocus
             >
-                <Stack sx={{ p: 2 }} spacing={2} onMouseLeave={handleMouseLeave}>
-                    {item.children.map((childItem) => (
-                        <React.Fragment key={childItem.id}>
-                            {childItem.type === 'group' && <MenuGroup item={childItem} level={level + 1} />}
-                            {childItem.type === 'collapse' && <ListMenuCollapse item={childItem} level={level + 1} />}
-                            {childItem.type === 'item' && <MenuItem item={childItem} level={level + 1} />}
+                <Stack sx={{ p: 1 }} onMouseLeave={handleMouseLeave}>
+                    {filteredChildren.map((childItem) => (
+                        <React.Fragment key={`${childItem.id}-${childItem.lang}`}>
+                            {childItem.type === 'group' && 
+                                <MenuGroup item={childItem} level={level + 1} currentLang={currentLang} />
+                            }
+                            {childItem.type === 'collapse' && 
+                                <ListMenuCollapse item={childItem} level={level + 1} currentLang={currentLang} />
+                            }
+                            {childItem.type === 'item' && 
+                                <MenuItem item={childItem} level={level + 1} currentLang={currentLang} />
+                            }
                         </React.Fragment>
                     ))}
                 </Stack>
@@ -90,6 +104,7 @@ const ListMenuCollapse = ({ item, level }) => {
 ListMenuCollapse.propTypes = {
     item: PropTypes.object,
     level: PropTypes.number,
+    currentLang: PropTypes.string
 };
 
 export default ListMenuCollapse;

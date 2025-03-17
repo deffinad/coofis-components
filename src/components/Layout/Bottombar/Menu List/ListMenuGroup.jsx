@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Stack, Typography, Popover, Button } from '@mui/material';
-import * as MUIIcons from '@mui/icons-material';
 import ListMenuCollapse from './ListMenuCollapse';
 import MenuItem from './ListMenuItem';
 
-const ListMenuGroup = ({ item, level }) => {
+const ListMenuGroup = ({ item, level, currentLang }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleMouseEnter = (event) => {
@@ -17,21 +16,27 @@ const ListMenuGroup = ({ item, level }) => {
     };
 
     const open = Boolean(anchorEl);
-    const id = open ? `menu-group-popover-${item.id}` : undefined;
+    const id = open ? `menu-group-popover-${item.id}-${item.lang}` : undefined;
 
     const buttonStyle = {
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '10px',
-        // padding: level > 1 ? 1 : '8px 16px',
-        padding: '2px',
+        padding: level > 1 ? 1 : '8px 16px',
         textTransform: 'none',
         minWidth: 'unset',
-        color: 'white'
+        color: 'white',
+        '&:hover': {
+            backgroundColor: '#333232a1'
+        }
     };
+
+    // Filter children by current language
+    const filteredChildren = item.children 
+        ? item.children.filter(child => child.lang === currentLang || !child.lang)
+        : [];
 
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{paddingTop: '10px'}}>
@@ -41,7 +46,6 @@ const ListMenuGroup = ({ item, level }) => {
                 component="div"
             >
                 <Typography sx={{ color: 'white', fontWeight: 600 }}>{item.title}</Typography>
-                {open ? <MUIIcons.ExpandLess /> : <MUIIcons.ExpandMore />}
             </Button>
 
             <Popover
@@ -69,14 +73,20 @@ const ListMenuGroup = ({ item, level }) => {
                 }}
                 disableRestoreFocus
             >
-                <Stack sx={{ p: 2 }} spacing={2} onMouseLeave={handleMouseLeave}>
-                    <Typography sx={{ color: 'white', fontWeight: 'bold' }}>{item.title}</Typography>
+                <Stack sx={{ p: 1 }} onMouseLeave={handleMouseLeave}>
+                    <Typography sx={{ color: 'white', fontWeight: 600, px: 2, py: 1 }}>{item.title}</Typography>
                     
-                    {item.children && item.children.map((childItem) => (
-                        <React.Fragment key={childItem.id}>
-                            {childItem.type === 'group' && <ListMenuGroup item={childItem} level={level + 1} />}
-                            {childItem.type === 'collapse' && <ListMenuCollapse item={childItem} level={level + 1} />}
-                            {childItem.type === 'item' && <MenuItem item={childItem} level={level + 1} />}
+                    {filteredChildren.map((childItem) => (
+                        <React.Fragment key={`${childItem.id}-${childItem.lang}`}>
+                            {childItem.type === 'group' && 
+                                <ListMenuGroup item={childItem} level={level + 1} currentLang={currentLang} />
+                            }
+                            {childItem.type === 'collapse' && 
+                                <ListMenuCollapse item={childItem} level={level + 1} currentLang={currentLang} />
+                            }
+                            {childItem.type === 'item' && 
+                                <MenuItem item={childItem} level={level + 1} currentLang={currentLang} />
+                            }
                         </React.Fragment>
                     ))}
                 </Stack>
