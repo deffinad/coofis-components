@@ -4,8 +4,8 @@ import MenuItem from './menuItem';
 import * as MUIIcons from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
 
-const MenuDropdown = ({ item, lang }) => {
-    let IconComponent = item.icon ? MUIIcons[item.icon] : null;
+const MenuDropdown = ({ item, lang, stat }) => {
+    const IconComponent = item.icon ? MUIIcons[item.icon] : null;
     const [hovered, setHovered] = useState(false);
 
     const handleMouseEnter = () => {
@@ -47,11 +47,12 @@ const MenuDropdown = ({ item, lang }) => {
         >
             <Stack direction="row" sx={stackStyle}>
                 <Stack direction="row" gap={2} alignItems="center">
-                    {item.icon && IconComponent && <IconComponent size="medium" />}
+                    {stat[0] && item.icon && IconComponent && <IconComponent size="medium" />}
                     <Stack direction="column">
-                        <Typography sx={{ color: 'white' }}>{item[`title_${lang}`]}</Typography>
-                        <Typography sx={{ color: 'white', fontWeight: 500, fontSize: 13 }}>{item[`sub_title_${lang}`]}</Typography>
+                        {stat[1] && <Typography sx={{ color: 'white' }}>{item[`title_${lang}`]}</Typography>}
+                        {stat[2] && <Typography sx={{ color: 'white', fontWeight: 500, fontSize: 13 }}>{item[`sub_title_${lang}`]}</Typography>}
                     </Stack>
+                    {hovered ? <MUIIcons.ExpandLess /> : <MUIIcons.ExpandMore />}
                 </Stack>
             </Stack>
 
@@ -60,10 +61,10 @@ const MenuDropdown = ({ item, lang }) => {
                     {item.children.map((child) => (
                         <>
                             {child.type === 'dropdown' && (
-                                <MenuDropdown item={child} lang={lang}/>
+                                <MenuDropdown item={child} lang={lang} stat={[...stat.slice(0, 1), true, ...stat.slice(2)]}/>
                             )}
                             {child.type === 'item' && (
-                                <MenuItem item={child} lang={lang}/>
+                                <MenuItem item={child} lang={lang} stat={[...stat.slice(0, 1), true, ...stat.slice(2)]}/>
                             )}
                         </>
                     ))}

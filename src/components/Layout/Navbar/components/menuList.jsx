@@ -4,14 +4,14 @@ import { navbarListConfig } from '../../NavbarLayoutConfig';
 import MenuDropdown from './menuDropdown';
 import MenuItem from './menuItem';
 
-const MenuList = ({lang}) => {
+const MenuList = ({lang, menuStyle, stat}) => {
     return (
-        <Stack direction={'row'} justifyContent={'space-evenly'} alignItems={'center'}>
+        <Stack direction={'row'} justifyContent={menuStyle} alignItems={'center'} pt={2}>
             {navbarListConfig.length > 0 && navbarListConfig.map((item) => (
-                <>
-                    {item.type === 'dropdown' && <MenuDropdown item={item} lang={lang} />}
-                    {item.type === 'item' && <MenuItem item={item} lang={lang} />}
-                </>
+                <React.Fragment key={item.id}>
+                    {item.type === 'dropdown' && <MenuDropdown item={item} lang={lang} stat = {stat} />}
+                    {item.type === 'item' && <MenuItem item={item} lang={lang} stat = {stat} />}
+                </React.Fragment>
             ))}
         </Stack>
     )

@@ -5,3 +5,5 @@ export const Components = {
     Ratings,
     Input,
 }
+
+export { default as CutiLayout } from './Cuti/Layout';

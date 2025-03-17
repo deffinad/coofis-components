@@ -1,9 +1,9 @@
     import React, { useState } from 'react';
     import PropTypes from 'prop-types';
     import * as MUIIcons from '@mui/icons-material';
-    import { Box, Stack, Typography } from '@mui/material';
+    import { Stack, Typography } from '@mui/material';
 
-    const MenuItem = ({ item, lang }) => {
+    const MenuItem = ({ item, lang, stat }) => {
         const { pathname } = window.location;
         const IconComponent = item.icon ? MUIIcons[item.icon] : null;
         const [hovered, setHovered] = useState(false);
@@ -35,21 +35,16 @@
         return (
             <Stack direction="row" sx={stackStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
                 <Stack direction="row" gap={2} alignItems="center">
-                    {item.icon && IconComponent && <IconComponent size="medium" />}
+                    {stat[0] && item.icon && IconComponent && <IconComponent size="medium" />}
                     <Stack direction="column">
-                        <Typography sx={{ color: 'white', fontWeight: pathname === item.external_url ? 600 : '' }}>
+                        {stat[1] && <Typography sx={{ color: 'white', fontWeight: pathname === item.external_url ? 600 : '' }}>
                             {item[`title_${lang}`]}
-                        </Typography>
-                        {item[`sub_title_${lang}`] && <Typography sx={{ color: 'white', fontWeight: 500, fontSize: 13 }}>
+                        </Typography>}
+                        {stat[2] && item[`sub_title_${lang}`] && <Typography sx={{ color: 'white', fontWeight: 500, fontSize: 13 }}>
                             {item[`sub_title_${lang}`]}
                         </Typography>}
                     </Stack>
                 </Stack>
-                {item.count && 
-                    <Box component='div' className='menu-badge'>
-                        {item.count}
-                    </Box>
-                }
             </Stack>
         );
     };

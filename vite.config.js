@@ -13,7 +13,8 @@ export default defineConfig({
       exposes: {
         './Ratings': './src/components/Ratings/index.jsx',
         './Inputs': '/src/components/Inputs/index.js',
-        './Components': '/src/components/index.js'
+        './Components': '/src/components/index.js',
+        './CutiLayout': '/src/components/Cuti/Layout/index.jsx'
       },
       shared: ['react', 'react-dom'],
     }),

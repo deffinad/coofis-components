@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Stack, Typography, Box } from '@mui/material';
 import MenuList from './components/menuList';
 
-const Navbar = () => {
-const [selectedLang, setSelectedLang] = React.useState("en");
+const Navbar = ({menuStyle, stat}) => {
+const [selectedLang, setSelectedLang] = useState("en");
 
 const selectedStyle = (lang) => ({
     flex: 1,
@@ -11,7 +11,7 @@ const selectedStyle = (lang) => ({
     padding: "10px",
     cursor: "pointer",
     transition: "background-color 0.3s",
-    backgroundColor: selectedLang === lang ? "#222" : "111"
+    backgroundColor: selectedLang === lang? "#222" : "111"
 });
 
     return (
@@ -21,9 +21,10 @@ const selectedStyle = (lang) => ({
             </Typography>
             
             <Stack flex={1} px={2} pb={2}>
-                <MenuList lang={selectedLang} />
+                <MenuList lang={selectedLang} menuStyle={menuStyle} stat = {stat}/>
             </Stack>
 
+            {/* Language Selector */}
             <Stack direction="row"sx={{ border: "2px solid black", borderRadius: "6px", width: "8%", backgroundColor: "#444", }}>
                 <Box onClick={() => setSelectedLang("id")} sx={ selectedStyle('id') }>
                     <Typography fontWeight="bold">ID</Typography>
@@ -32,7 +33,7 @@ const selectedStyle = (lang) => ({
                     <Typography fontWeight="bold">EN</Typography>
                 </Box>
             </Stack>
-        </Stack>  
+        </Stack>
     );
 };
 

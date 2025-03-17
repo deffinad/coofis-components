@@ -84,8 +84,45 @@ export const navbarListConfig = [
         "external_url": "", // use only to launch external website
         "active": true,
         "clickable": true, // if not then work for hover only
-        "type" : "item"
+        "type" : "dropdown",
+        "children" : [
+          {
+            "id": 3.21,
+            "parent_id": 3.2,
+            "menu_position_id": 1, // follow parent
+            "order": 1, // order based on parent_id
+            "title_en": "Login page",
+            "sub_title_en": "Go to login page",
+            "title_id": "Halaman Masuk",
+            "sub_title_id": "Pergi ke halaman masuk",
+            "icon": "",
+            "image_icon": "",
+            "image_cover": "",
+            "external_url": "", // use only to launch external website
+            "active": true,
+            "clickable": true, // if not then work for hover only
+            "type" : "item"
+          }
+        ]
       }
     ]
+  },
+  {
+    "id": 4,
+    "parent_id": 0, // 0 is for top
+    "menu_position_id": 1, // follow parent
+    "order": 1, // order based on parent_id
+    'linktype': 'external',
+    "title_en": "Calendar",
+    "sub_title_en": "See Calendar",
+    "title_id": "Kalender", 
+    "sub_title_id": "Lihat Kalender",
+    "icon": "CalendarMonth",
+    "image_icon": "",
+    "image_cover": "",
+    "external_url": "https://tanggalan.com/2025", // use only to launch external website
+    "active": true,
+    "clickable": true, // if not then work for hover only
+    "type": 'item'
   }
 ]
