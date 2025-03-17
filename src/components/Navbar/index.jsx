@@ -1,10 +1,11 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button, IconButton, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = (sx, ...props) => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#1976d2" }}>
+    <AppBar position="static" sx={sx} {...props}>
       <Toolbar>
         {/* Menu Icon (Untuk Mobile View) */}
         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ display: { xs: "block", md: "none" } }}>
@@ -26,6 +27,10 @@ const Navbar = () => {
       </Toolbar>
     </AppBar>
   );
+};
+
+Navbar.propTypes = {
+  sx: PropTypes.any
 };
 
 export default Navbar;

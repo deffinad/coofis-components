@@ -13,7 +13,7 @@ export default defineConfig({
       exposes: {
         './Ratings': './src/components/Ratings/index.jsx',
         './Navbar': '/src/components/Navbar/index.jsx',
-        './Inputs': '/src/components/Inputs/index.js',
+        './Input': '/src/components/Input/index.jsx',
         './Layout': '/src/components/Layout/index.js',
         './Components': '/src/components/index.js',
       },
