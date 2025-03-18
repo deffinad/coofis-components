@@ -9,3 +9,5 @@ export const Components = {
   Navbar,
   Layout,
 };
+
+export { default as CutiLayout } from './Cuti/Layout';

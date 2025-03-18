@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Grid2 } from '@mui/material'
+import React, {useState} from 'react'
 import './App.css'
+import Layout from './components/Cuti/Layout'
+import Sidebar from './components/Layout/Sidebar'
+import Navbar from './components/Layout/Navbar'
+import Showcase from './components/Layout/ShowcaseButton/showcase'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+// const [style, setStyle] = useState("flex-start");
+// const [titleStat, setTitleStat] = useState(true);
+// const [subtitleStat, setSubtitleStat] = useState(true);
+// const [iconStat, setIconStat] = useState(true);
+
+// const stat = [titleStat, subtitleStat, iconStat];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    // <Grid2 container height={'100%'}>
+    //   <Grid2 size={{ md: 3, lg: 2 }} maxHeight={'100%'}>
+    //     <Sidebar />
+    //   </Grid2>
+    //   <Grid2 size={{ md: 9, lg: 12 }} maxHeight={'100%'}>
+    //     <Navbar menuStyle={style} stat = {stat}/>
+    //   </Grid2>
+    //   <Grid2 size={{ md: 12, lg: 12 }} maxHeight={'100%'} sx ={{ position: 'absolute', bottom: 10, right: 10}}>
+    //   <Showcase 
+    //     titleStat={titleStat} setTitleStat={setTitleStat}
+    //     subtitleStat={subtitleStat} setSubtitleStat={setSubtitleStat}
+    //     iconStat={iconStat} setIconStat={setIconStat}
+    //     style={style} setStyle={setStyle}
+    //   /> 
+    //   </Grid2>
+    // </Grid2>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   )
 }
 

@@ -16,6 +16,7 @@ export default defineConfig({
         './Input': '/src/components/Input/index.jsx',
         './Layout': '/src/components/Layout/index.js',
         './Components': '/src/components/index.js',
+        './CutiLayout': '/src/components/Cuti/Layout/index.jsx'
       },
       shared: ['react', 'react-dom'],
     }),
