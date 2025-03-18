@@ -1,7 +1,7 @@
 import React from 'react'
 import { Stack, Typography } from '@mui/material'
 import ListMenu from './components/ListMenu';
-import InputSearchBar from '../../../Inputs/InputSearchBar';
+import InputSearchBar from '../../../Input/InputSearchBar';
 import { stylingConfig } from '../StylingConfig';
 
 const AppSidebar = () => {
