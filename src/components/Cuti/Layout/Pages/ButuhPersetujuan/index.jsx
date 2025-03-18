@@ -1,8 +1,8 @@
 import React from 'react';
 import { Stack, Box } from '@mui/material';
-import DropdownTampilkan from '../components/Tampilkan';
-import InputSearchBar from '../../../Inputs/InputSearchBar';
-import GenerateTable from '../components/GenerateTable';
+import DropdownTampilkan from '../../components/Tampilkan';
+import InputSearchBar from '../../../../Inputs/InputSearchBar';
+import GenerateTable from '../../components/GenerateTable';
 import { DataButuhPersetujuan } from './DocsButuhPersetujuan';
 
 const ButuhPersetujuan = ({scrollbar}) => {

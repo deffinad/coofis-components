@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Stack, Typography, Box } from '@mui/material';
 import { DateData } from '../DateData';
-import { stylingConfig } from '../../StylingConfig';
+import { stylingConfig } from '../../../StylingConfig';
 import { Circle } from '@mui/icons-material';
 
 const ListDate = () => {

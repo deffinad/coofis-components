@@ -1,8 +1,8 @@
 import React from 'react'
 import { Stack, Typography } from '@mui/material'
 import ListMenu from './components/ListMenu';
-import InputSearchBar from '../../../Inputs/InputSearchBar';
-import { stylingConfig } from '../StylingConfig';
+import InputSearchBar from '../../../../Inputs/InputSearchBar';
+import { stylingConfig } from '../../StylingConfig';
 
 const AppSidebar = () => {
     const style = stylingConfig[0]

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Stack, Typography, Box } from '@mui/material'
-import { stylingConfig } from '../../StylingConfig'
+import { stylingConfig } from '../../../StylingConfig'
 import { DataKuota } from '../DocsKuota'
-import LabelledCircularPercentage from '../../components/LabelledCircuralPercentage'
+import LabelledCircularPercentage from '../../../components/LabelledCircuralPercentage'
 
 const MonitoringKuota = () => {
     const style = stylingConfig[0]

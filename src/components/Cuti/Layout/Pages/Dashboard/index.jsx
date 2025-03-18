@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Grid2, Box, Stack} from '@mui/material';
-import { stylingConfig } from '../StylingConfig';
+import { stylingConfig } from '../../StylingConfig';
 import ListDate from './components/ListDate';
 import StatusDokumenCuti from './components/StatusDokumenCuti';
 import MonitoringKuota from './components/MonitoringKuota';

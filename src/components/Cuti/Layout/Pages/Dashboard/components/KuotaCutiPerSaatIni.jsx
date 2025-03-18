@@ -1,9 +1,9 @@
 import React from 'react'
 import { Stack, Typography, Box } from '@mui/material'
-import { stylingConfig } from '../../StylingConfig'
+import { stylingConfig } from '../../../StylingConfig'
 import { KuotaCuti1 } from '../DocsKuotaCuti1'
 import { KuotaCuti2 } from '../DocsKuotaCuti2'
-import GenerateTable from '../../components/GenerateTable'
+import GenerateTable from '../../../components/GenerateTable'
 
 const KuotaCutiSaatIni = () => {
     const style = stylingConfig[0]

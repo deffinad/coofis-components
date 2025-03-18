@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack, Typography, Box } from '@mui/material'
-import { stylingConfig } from '../../StylingConfig'
+import { stylingConfig } from '../../../StylingConfig'
 import { DataCuti } from '../DocsCuti'
 import * as MUIIcons from '@mui/icons-material'
 

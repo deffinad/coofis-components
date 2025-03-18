@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { List } from '@mui/material';
-import { CutiSidebarConfig } from '../../CutiSidebarConfig';
+import { CutiSidebarConfig } from '../../../CutiSidebarConfig';
 import ListMenuGroup from './ListMenuGroup';
 import ListMenuCollapse from './ListMenuCollapse';
 import ListMenuItem from './ListMenuItem';

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Typography, Box } from '@mui/material'
-import { stylingConfig } from '../../StylingConfig'
+import { stylingConfig } from '../../../StylingConfig'
 import { DocsArsipCuti } from '../DocsArsipCuti'
-import GenerateTable from '../../components/GenerateTable'
+import GenerateTable from '../../../components/GenerateTable'
 
 const ArsipCuti = () => {
     const style = stylingConfig[0]

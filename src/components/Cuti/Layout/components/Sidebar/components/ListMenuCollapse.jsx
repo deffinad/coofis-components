@@ -4,7 +4,7 @@ import ListMenuItem from './ListMenuItem';
 import * as MUIIcons from '@mui/icons-material';
 import { Box, Collapse, ListItem, Stack, Typography } from '@mui/material';
 import ListMenuGroup from './ListMenuGroup';
-import { stylingConfig } from '../../StylingConfig';
+import { stylingConfig } from '../../../StylingConfig';
 
 const ListMenuCollapse = ({ item, level, selectedItem, setSelectedItem }) => {
     let IconComponent = MUIIcons[item.icon]

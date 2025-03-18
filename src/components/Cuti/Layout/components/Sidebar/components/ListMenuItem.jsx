@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as MUIIcons from '@mui/icons-material';
 import { Box, ListItem, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { stylingConfig } from '../../StylingConfig';
+import { stylingConfig } from '../../../StylingConfig';
 
 const ListMenuItem = ({ item, level, selectedItem, setSelectedItem }) => {
     const style = stylingConfig[0];

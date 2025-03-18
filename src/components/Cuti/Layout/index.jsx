@@ -1,11 +1,12 @@
 import React from 'react';
 import { Grid2} from '@mui/material';
-import AppSidebar from './Sidebar';
-import Header from './Header';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Dashboard from './Dashboard';
-import DisetujuiAnda from './DisetujuiAnda';
-import ButuhPersetujuan from './ButuhPersetujuan';
+import AppSidebar from './components/Sidebar';
+import Header from './components/Header';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import Dashboard from './Pages/Dashboard';
+import DisetujuiAnda from './Pages/DisetujuiAnda';
+import ButuhPersetujuan from './Pages/ButuhPersetujuan';
+import DetailDokumen from './Pages/ButuhPersetujuan/DetailDokumen';
 
 const Layout = () => {
     const scrollbar = (thumbColor) => ({
@@ -37,6 +38,8 @@ const Layout = () => {
                     <Route path='/dashboard' element={<Dashboard scrollbar = {scrollbar}/>} />
                     <Route path='/disetujuianda' element={<DisetujuiAnda scrollbar = {scrollbar} />} />
                     <Route path='/butuhpersetujuan' element={<ButuhPersetujuan scrollbar = {scrollbar} />} />
+                    <Route path="/butuhpersetujuan/detaildokumen" element={<DetailDokumen scrollbar = {scrollbar} />} />
+                    <Route path="/dashboard/detaildokumen" element={<DetailDokumen scrollbar = {scrollbar} />} />
                 </Routes>
             </Grid2>
         </Grid2>

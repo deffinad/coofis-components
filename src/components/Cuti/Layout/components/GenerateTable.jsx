@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import * as MUIIcons from '@mui/icons-material'
 import { stylingConfig } from "../StylingConfig";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const style = stylingConfig[0];
 const FONT_SIZE = "12px";
@@ -43,6 +44,8 @@ const GenerateTable = ({ config }) => {
   const tableData = config.find(item => item.type === 'tableCell') || {};
   const rows = tableData.children || [];
   const showPagination = tableData.pagination === 1;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const columns = headers.map(header => ({
     label: header.title,
@@ -131,6 +134,8 @@ const GenerateTable = ({ config }) => {
                             width: "fit-content",
                             fontFamily: style.fontFamily,
                           }}
+                          // onClick={() => navigate(`${location.pathname}/detaildokumen`, { state: { detailData: row } })}
+                          onClick={() => navigate(`${location.pathname}/detaildokumen`)}
                         >
                           <MUIIcons.CreateOutlined sx={{ fontSize: "14px", color: "#FFF", marginRight: "4px" }} />
                           <Typography fontSize="11px" fontFamily={style.fontFamily}>
@@ -172,7 +177,7 @@ const GenerateTable = ({ config }) => {
       {/* Pagination */}
       {showPagination && (
         <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%", paddingTop: "10px" }}>
-          <Pagination count={3} color="primary" />
+          <Pagination count={2} color={style.primaryColor} sx ={{"& .MuiPaginationItem-root:focus": {outline: "none", boxShadow: "none" }}}/>
         </Box>
       )}
     </Stack>

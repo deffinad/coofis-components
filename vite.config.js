@@ -12,9 +12,15 @@ export default defineConfig({
       //Module Expose
       exposes: {
         './Ratings': './src/components/Ratings/index.jsx',
-        './Inputs': '/src/components/Inputs/index.js',
-        './Components': '/src/components/index.js',
-        './CutiLayout': '/src/components/Cuti/Layout/index.jsx'
+        './Inputs': './src/components/Inputs/index.js',
+        './Components': './src/components/index.js',
+        './ArsipCuti': './src/components/Cuti/Layout/Pages/Dashboard/components/ArsipCuti.jsx',
+        './KuotaCutiSaatIni': './Cuti/Layout/Pages/Dashboard/components/KuotaCutiPerSaatIni',
+        './ListDate': './Cuti/Layout/Pages/Dashboard/components/ListDate',
+        './MonitoringKuota': './Cuti/Layout/Pages/Dashboard/components/MonitoringKuota',
+        './StatusDokumenCuti': './Cuti/Layout/Pages/Dashboard/components/StatusDokumenCuti',
+        './DisetujuiAnda': './Cuti/Layout/Pages/DisetujuiAnda',
+        './ButuhPersetujuan': './Cuti/Layout/Pages/ButuhPersetujuan',
       },
       shared: ['react', 'react-dom'],
     }),

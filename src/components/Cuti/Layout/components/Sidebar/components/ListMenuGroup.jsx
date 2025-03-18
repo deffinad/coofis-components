@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListItem } from '@mui/material';
-import { stylingConfig } from '../../StylingConfig';
+import { stylingConfig } from '../../../StylingConfig';
 import ListMenuCollapse from './ListMenuCollapse';
 import ListMenuItem from './ListMenuItem';
 
