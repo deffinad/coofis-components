@@ -72,7 +72,8 @@ export const DocsArsipCuti = [
                 'selesai': '04-10-2024',
                 'durasi': '7 hari',
                 'status': 'Selesai',
-                'tindakan' : '2'
+                'tindakan' : '2',
+                'dialogTeks' : 'Apakah Anda yakin untuk menghapus dokumen ini?'
             },
             {
                 'id': 2.1,

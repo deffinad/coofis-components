@@ -5,13 +5,13 @@ import { Box, ListItem, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { stylingConfig } from '../../../StylingConfig';
 
-const ListMenuItem = ({ item, level, selectedItem, setSelectedItem }) => {
+const ListMenuItem = ({ item, level, selectedItem, setSelectedItem, parentSelected }) => {
     const style = stylingConfig[0];
     let IconComponent = MUIIcons[item.icon];
-    
+
     // Cek apakah item ini yang terpilih
     const isSelected = selectedItem === item.title;
-    
+
     const sxStyle = {
         cursor: 'pointer',
         display: 'flex',
@@ -21,13 +21,12 @@ const ListMenuItem = ({ item, level, selectedItem, setSelectedItem }) => {
         borderRadius: '10px',
         color: style.primaryColor,
         padding: level > 1 ? 1 : '',
-        paddingLeft: level > 2 ? level * 2 : '',
-        background: isSelected ? style.selected : 'transparent',
+        paddingLeft: level > 2 ? level * 1 : '',
+        background: isSelected ? style.selectedChild : parentSelected ? style.selected : 'transparent',
         height: 35,
         mb: 1
     };
 
-    // Format URL dari title
     const formatLink = (title) => `/${title.toLowerCase().replace(/\s+/g, '')}`;
     
     return (
@@ -60,7 +59,9 @@ ListMenuItem.propTypes = {
     item: PropTypes.object.isRequired,
     level: PropTypes.number.isRequired,
     selectedItem: PropTypes.string.isRequired,
-    setSelectedItem: PropTypes.func.isRequired
+    setSelectedItem: PropTypes.func.isRequired,
+    parentSelected: PropTypes.bool
 };
+
 
 export default ListMenuItem;

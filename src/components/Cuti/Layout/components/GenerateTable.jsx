@@ -15,6 +15,8 @@ import {
 import * as MUIIcons from '@mui/icons-material'
 import { stylingConfig } from "../StylingConfig";
 import { useNavigate, useLocation } from "react-router-dom";
+import CustomToolTip from "./CustomToolTip";
+import CustomDialog from "./DialogBox";
 
 const style = stylingConfig[0];
 const FONT_SIZE = "12px";
@@ -33,13 +35,21 @@ const tableStyle = (color = style.primaryColor, weight = FONT_WEIGHT, bgColor = 
 const statusStyle = {
   Selesai: { color: "white", background: "#52BD94" },
   Disetujui: { color: "white", background: "#52BD94" },
-  Pending: { color: "white", background: "#FFB020" },
+  Ditangguhkan: { color: "white", background: "#FFB020" },
   Diproses: { color: "white", background: "#FFB020" },
   Ditolak: { color: "white", background: "#CB3A31" },
   Batal: { color: "white", background: "#CB3A31" },
 };
 
 const GenerateTable = ({ config }) => {
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [selectedRow, setSelectedRow] = React.useState(null);
+
+  const handleDeleteClick = (row) => {
+    setSelectedRow(row);
+    setDialogOpen(true);
+  };
+
   const headers = config.find(item => item.type === 'tableHeader')?.children || [];
   const tableData = config.find(item => item.type === 'tableCell') || {};
   const rows = tableData.children || [];
@@ -61,7 +71,7 @@ const GenerateTable = ({ config }) => {
           <TableHead sx={{ backgroundColor: "#F5F5F5" }}>
             <TableRow>
               {columns.map((col, index) => (
-                <TableCell key={index} sx={{...tableStyle("#0A0A0A", "700"), fontSize:FONT_SIZE}}>
+                <TableCell key={index} sx={{...tableStyle(style.blackColor, "700"), fontSize:FONT_SIZE}}>
                   {col.label}
                 </TableCell>
               ))}
@@ -114,12 +124,20 @@ const GenerateTable = ({ config }) => {
                     ) : col.field === "tindakan" ? (
                       // Tidak mengubah font untuk tindakan
                       row[col.field] === "1" ? (
-                        <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer" }} />
-                      ) : row[col.field] === "2" ? (
-                        <>
-                          <MUIIcons.CreateOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer", marginRight: "4px" }} />
+                        <CustomToolTip placeholder={'Lihat'}>
                           <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer" }} />
-                        </>
+                        </CustomToolTip>
+                      ) : row[col.field] === "2" ? (
+                        <Stack direction={'row'} justifyContent={'center'}>
+                          <CustomToolTip placeholder={'Ubah'}>
+                            <MUIIcons.CreateOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer", marginRight: "4px" }} />
+                          </CustomToolTip>
+                          <CustomToolTip placeholder={'Hapus'}>
+                          <MUIIcons.DeleteOutline
+                            sx={{ fontSize: "22px", color: "#FF5630", cursor: "pointer" }}
+                            onClick={() => handleDeleteClick(row)}/>
+                          </CustomToolTip>
+                        </Stack>
                       ) : row[col.field] === "3" ? (
                         <Box
                           sx={{
@@ -180,6 +198,15 @@ const GenerateTable = ({ config }) => {
           <Pagination count={2} color={style.primaryColor} sx ={{"& .MuiPaginationItem-root:focus": {outline: "none", boxShadow: "none" }}}/>
         </Box>
       )}
+      <CustomDialog
+      open={dialogOpen}
+      onClose={() => setDialogOpen(false)}
+      title="Hapus Dokumen"
+      text={selectedRow?.dialogTeks}
+      onConfirm={() => {
+        setDialogOpen(false);
+      }}
+    />
     </Stack>
   );
 };

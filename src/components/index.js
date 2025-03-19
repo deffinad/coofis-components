@@ -7,6 +7,13 @@ import MonitoringKuota from './Cuti/Layout/Pages/Dashboard/components/Monitoring
 import StatusDokumenCuti from './Cuti/Layout/Pages/Dashboard/components/StatusDokumenCuti';
 import DisetujuiAnda from './Cuti/Layout/Pages/DisetujuiAnda';
 import ButuhPersetujuan from './Cuti/Layout/Pages/ButuhPersetujuan';
+import Draft from './Cuti/Layout/Pages/Draft';
+import StatusDokumenCuti2 from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/StatusDokumenCuti2';
+import YangMenyetujui from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/YangMenyetujui';
+import HistoriKomentar from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/HistoriKomentar';
+import ProfilPegawai from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/ProfilPegawai';
+import ToolButton from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/ToolButton';
+import BackButtonBox from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/BackButton';
 
 export const Components = {
     Ratings,
@@ -17,5 +24,12 @@ export const Components = {
     MonitoringKuota,
     StatusDokumenCuti,
     DisetujuiAnda,
-    ButuhPersetujuan
+    ButuhPersetujuan,
+    Draft,
+    StatusDokumenCuti2,
+    YangMenyetujui,
+    HistoriKomentar,
+    ProfilPegawai,
+    ToolButton,
+    BackButtonBox
 }

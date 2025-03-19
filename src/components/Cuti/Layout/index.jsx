@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard';
 import DisetujuiAnda from './Pages/DisetujuiAnda';
 import ButuhPersetujuan from './Pages/ButuhPersetujuan';
 import DetailDokumen from './Pages/ButuhPersetujuan/DetailDokumen';
+import Draft from './Pages/Draft';
 
 const Layout = () => {
     const scrollbar = (thumbColor) => ({
@@ -28,16 +29,17 @@ const Layout = () => {
 
     return (
         <Grid2 container minHeight={'100vh'} sx={{ backgroundColor:"#EEF0F7" }}>
-            <Grid2 size={{ md: 2.5, lg: 2.5 }} sx={{alignItems: "start"}} >            
+            <Grid2 size={{ md: 3, lg: 3 }} sx={{alignItems: "start"}} >            
                 <AppSidebar />
             </Grid2>
-            <Grid2 size={{ md: 9.5, lg: 9.5 }} maxHeight={'100%'}>
+            <Grid2 size={{ md: 9, lg: 9 }} maxHeight={'100%'}>
                 <Header />
                 <Routes>
                     <Route path="/" element={<Navigate to="/dashboard" />} />
                     <Route path='/dashboard' element={<Dashboard scrollbar = {scrollbar}/>} />
                     <Route path='/disetujuianda' element={<DisetujuiAnda scrollbar = {scrollbar} />} />
                     <Route path='/butuhpersetujuan' element={<ButuhPersetujuan scrollbar = {scrollbar} />} />
+                    <Route path='/draft' element={<Draft scrollbar= {scrollbar}/>} />
                     <Route path="/butuhpersetujuan/detaildokumen" element={<DetailDokumen scrollbar = {scrollbar} />} />
                     <Route path="/dashboard/detaildokumen" element={<DetailDokumen scrollbar = {scrollbar} />} />
                 </Routes>

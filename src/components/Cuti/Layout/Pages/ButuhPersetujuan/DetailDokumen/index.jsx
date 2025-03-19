@@ -3,6 +3,14 @@ import React from 'react';
 // import { useLocation } from "react-router-dom";
 import { Box, Grid2, Typography, Stack } from '@mui/material';
 import { stylingConfig } from '../../../StylingConfig';
+import StatusDokumenCuti2 from './components/StatusDokumenCuti2';
+import BackButtonBox from './components/BackButton';
+import ProfilPegawai from './components/ProfilPegawai';
+import Lampiran from './components/Lampiran';
+import YangMenyetujui from './components/YangMenyetujui';
+import ToolButton from './components/ToolButton';
+import HistoriKomentar from './components/HistoriKomentar';
+
 
 const DetailDokumen = ({scrollbar}) => {
     // const {id} = useParams(); #gunakan jika sudah ada backend
@@ -12,28 +20,23 @@ const DetailDokumen = ({scrollbar}) => {
     // const detailData = location.state?.detailData; // Ambil data lengkap dari state
 
     return (
-        <Box p={4}>
-            <Grid2 size = {{md: 8, lg: 8}}>
-                <Stack direction= 'column'>
-                    <Box sx = {{backgroundColor: 'white'}}>
-                        <Stack direction= 'column'>
-                            <Typography color= {style.primaryColor}>AWKOFJWJWAJFOJ </Typography>
-                            <Grid2>
-
-                            </Grid2>
-                        </Stack>
-                    </Box>
+        <Grid2 container>
+            <Grid2 size = {{md: 7.5, lg: 7.5}}>
+                <Stack paddingTop={4} paddingLeft={4} direction= 'column' spacing={4}>
+                    <BackButtonBox />
+                    <StatusDokumenCuti2 />
+                    <ProfilPegawai />
+                    <Lampiran />
                 </Stack>
             </Grid2>
-            <Grid2 size = {{md: 4, lg: 4}}>
-                <Stack direction= 'column'>
-                    <Box>
-                        <Typography>Status Dokumen Cuti</Typography>
-                        
-                    </Box>
+            <Grid2 size = {{md: 4.5, lg: 4.5}}>
+                <Stack p={4} direction= 'column' spacing={4}>
+                    <YangMenyetujui />
+                    <HistoriKomentar />
+                    <ToolButton />
                 </Stack>
             </Grid2>
-        </Box>
+        </Grid2>
     )
 }
 
