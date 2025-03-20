@@ -1,15 +1,26 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton, Box } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Box,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PropTypes from "prop-types";
 
 const Navbar = ({ menuItems }) => {
-  console.log(menuItems)
   return (
     <AppBar position="static">
       <Toolbar>
         {/* Menu Icon (Untuk Mobile View) */}
-        <IconButton edge="start" color="inherit" aria-label="menu" sx={{ display: { xs: "block", md: "none" } }}>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
           <MenuIcon />
         </IconButton>
 
@@ -18,12 +29,13 @@ const Navbar = ({ menuItems }) => {
           MyApp
         </Typography>
 
-        {/* Menu Navigasi */}
+        {/* Menu Navigasi Dinamis */}
         <Box sx={{ display: { xs: "none", md: "block" } }}>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Rating</Button>
-          <Button color="inherit">Services</Button>
-          <Button color="inherit">Contact</Button>
+          {menuItems?.map((item, index) => (
+            <Button key={index} color="inherit">
+              {item.label}
+            </Button>
+          ))}
         </Box>
       </Toolbar>
     </AppBar>
@@ -31,7 +43,7 @@ const Navbar = ({ menuItems }) => {
 };
 
 Navbar.propTypes = {
-  sx: PropTypes.any
+  sx: PropTypes.any,
 };
 
 export default Navbar;
