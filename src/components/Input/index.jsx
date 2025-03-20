@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import PropTypes from "prop-types";
 
-const Input = ({ id, name, label, value, type, onChange, onClick, sx, ...props }) => {
+const Input = ({id,  name,  label,  value,  tipe,  placeholder,  onChange,onClick,}) => {
   return (
     <TextField
       id={id}
@@ -9,20 +9,16 @@ const Input = ({ id, name, label, value, type, onChange, onClick, sx, ...props }
       label={label}
       variant="outlined"
       value={value}
-      type={type}
-      onChange={onChange}
-      onClick={onClick}
-      sx={sx} 
-      {...props}
+      type={tipe}
+      placeholder={placeholder}
+      fullWidth
     />
   );
 };
 
-
-
 Input.defaultProps = {
   type: "text",
-  onChange: () => {}
+  onChange: () => {},
 };
 
 Input.propTypes = {
@@ -33,7 +29,7 @@ Input.propTypes = {
   type: PropTypes.string,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
-  sx: PropTypes.any
+  sx: PropTypes.any,
 };
 
 export default Input;

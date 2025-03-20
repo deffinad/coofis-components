@@ -3,9 +3,10 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Box } from "@mui/mater
 import MenuIcon from "@mui/icons-material/Menu";
 import PropTypes from "prop-types";
 
-const Navbar = (sx, ...props) => {
+const Navbar = ({ menuItems }) => {
+  console.log(menuItems)
   return (
-    <AppBar position="static" sx={sx} {...props}>
+    <AppBar position="static">
       <Toolbar>
         {/* Menu Icon (Untuk Mobile View) */}
         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ display: { xs: "block", md: "none" } }}>

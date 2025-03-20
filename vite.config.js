@@ -14,9 +14,9 @@ export default defineConfig({
         './Ratings': './src/components/Ratings/index.jsx',
         './Navbar': '/src/components/Navbar/index.jsx',
         './Input': '/src/components/Input/index.jsx',
+        './ArsipCuti': '/src/components/Cuti/Layout/Dashboard/components/ArsipCuti',
         './Layout': '/src/components/Layout/index.js',
         './Components': '/src/components/index.js',
-        './CutiLayout': '/src/components/Cuti/Layout/index.jsx'
       },
       shared: ['react', 'react-dom'],
     }),
