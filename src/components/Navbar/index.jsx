@@ -10,9 +10,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import PropTypes from "prop-types";
 
-const Navbar = ({ menuItems }) => {
+const Navbar = ({ menuItems, height }) => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ height: parseInt(height) }}>
       <Toolbar>
         {/* Menu Icon (Untuk Mobile View) */}
         <IconButton
