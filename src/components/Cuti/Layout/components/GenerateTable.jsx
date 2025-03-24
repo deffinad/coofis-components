@@ -125,20 +125,31 @@ const GenerateTable = ({ config }) => {
                       // Tidak mengubah font untuk tindakan
                       row[col.field] === "1" ? (
                         <CustomToolTip placeholder={'Lihat'}>
-                          <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer" }} />
+                          <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "20px", color: "#3366FF", cursor: "pointer" }} />
                         </CustomToolTip>
                       ) : row[col.field] === "2" ? (
                         <Stack direction={'row'} justifyContent={'center'}>
                           <CustomToolTip placeholder={'Ubah'}>
-                            <MUIIcons.CreateOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer", marginRight: "4px" }} />
+                            <MUIIcons.CreateOutlined sx={{ fontSize: "20px", color: "#3366FF", cursor: "pointer", marginRight: "4px" }} />
                           </CustomToolTip>
                           <CustomToolTip placeholder={'Hapus'}>
                           <MUIIcons.DeleteOutline
-                            sx={{ fontSize: "22px", color: "#FF5630", cursor: "pointer" }}
+                            sx={{ fontSize: "20px", color: "#FF5630", cursor: "pointer" }}
                             onClick={() => handleDeleteClick(row)}/>
                           </CustomToolTip>
                         </Stack>
                       ) : row[col.field] === "3" ? (
+                        <Stack direction={'row'} justifyContent={'center'} spacing={2}>
+                          <CustomToolTip placeholder={'Lihat'}>
+                            <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "20px", color: "#3366FF", cursor: "pointer" }} />
+                          </CustomToolTip>
+                          <CustomToolTip placeholder={'Batalkan'}>
+                          <MUIIcons.Close
+                            sx={{ fontSize: "20px", color: "#FF5630", cursor: "pointer" }}
+                            onClick={() => handleDeleteClick(row)}/>
+                          </CustomToolTip>
+                        </Stack>
+                      ) : row[col.field] === "4" ? (
                         <Box
                           sx={{
                             backgroundColor: "#FFB020",
@@ -183,8 +194,8 @@ const GenerateTable = ({ config }) => {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} sx={tableStyle("#999", "400", "center")}>
-                  Tidak ada data
+                <TableCell colSpan={columns.length} sx={tableStyle("#9E9E9E", "800", "#EDEDED")}>
+                  <Typography fontFamily= {style.fontFamily} fontWeight={800} fontSize={14}>Data tidak tersedia</Typography>
                 </TableCell>
               </TableRow>
             )}
@@ -194,9 +205,10 @@ const GenerateTable = ({ config }) => {
 
       {/* Pagination */}
       {showPagination && (
-        <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%", paddingTop: "10px" }}>
+        <Stack direction={'row'} justifyContent={'space-between'} sx={{ width: "100%", paddingTop: "10px" }}>
+          <Typography fontFamily={style.fontFamily} color='black' fontSize={14}>Menampilkan 1 sampai 1 entri</Typography>
           <Pagination count={2} color={style.primaryColor} sx ={{"& .MuiPaginationItem-root:focus": {outline: "none", boxShadow: "none" }}}/>
-        </Box>
+        </Stack>
       )}
       <CustomDialog
       open={dialogOpen}

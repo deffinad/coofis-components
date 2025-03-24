@@ -1,17 +1,16 @@
 import React from 'react'
 import { Stack, Typography, Box } from '@mui/material'
 import { stylingConfig } from '../../../StylingConfig'
-import { DataCuti } from '../DocsCuti'
 import * as MUIIcons from '@mui/icons-material'
 
-const StatusDokumenCuti = () => {
+const StatusDokumenCutiDashboard = ({config}) => {
     const style = stylingConfig[0]
 
     return (
         <Stack direction='column' spacing={1}>
             <Typography sx={{fontSize: '27px', fontWeight: '600', fontFamily: style.fontFamily, color: style.primaryColor}}>Status Dokumen Cuti</Typography>
                 <Stack direction='row' spacing={5} justifyContent='space-between'>
-                    {DataCuti.length > 0 && DataCuti.map((item) => {
+                    {config?.length > 0 && config?.map((item) => {
                         let IconComponent = MUIIcons[item.icon] || MUIIcons.HelpOutline;
 
                         return (
@@ -39,4 +38,4 @@ const StatusDokumenCuti = () => {
     
 }
 
-export default StatusDokumenCuti
+export default StatusDokumenCutiDashboard

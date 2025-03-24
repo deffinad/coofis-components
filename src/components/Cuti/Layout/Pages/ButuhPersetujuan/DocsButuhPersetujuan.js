@@ -53,23 +53,5 @@ export const DataButuhPersetujuan = [
             
         ]
     },
-    {
-        "id": 2,
-        "type": 'tableCell',
-        "pagination": 1,
-        "children": [
-            {
-                'id': 2.1,
-                'parent_id': 2,
-                'no': 1,
-                'tanggalPengajuan': ['03-03-2025', '15:33:46'],
-                'tipe': 'Pengajuan Cuti',
-                'mulai': '08-04-2025',
-                'akhir': '09-04-2025',
-                'jenisCuti': 'Cuti Tahunan',
-                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
-                'tindakan' : '3'
-            }
-        ]
-    },
+
 ]

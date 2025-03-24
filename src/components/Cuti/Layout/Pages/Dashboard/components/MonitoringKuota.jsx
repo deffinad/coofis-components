@@ -1,17 +1,16 @@
 import React from 'react'
 import { Stack, Typography, Box } from '@mui/material'
 import { stylingConfig } from '../../../StylingConfig'
-import { DataKuota } from '../DocsKuota'
 import LabelledCircularPercentage from '../../../components/LabelledCircuralPercentage'
 
-const MonitoringKuota = () => {
+const MonitoringKuota = ({config}) => {
     const style = stylingConfig[0]
 
     return (
         <Stack direction='column' spacing={1}>
             <Typography sx={{fontSize: '27px', fontWeight: '600', fontFamily: style.fontFamily, color: style.primaryColor}}>Monitoring Kuota</Typography>
                 <Stack direction='row' spacing={5} justifyContent='space-between'>
-                    {DataKuota.length > 0 && DataKuota.map((item) => {
+                    {config.length > 0 && config.map((item) => {
 
                         return (
                             <React.Fragment key= {item.id}>

@@ -1,14 +1,13 @@
 import React from 'react';
 import { List, Stack, Typography, Box } from '@mui/material';
-import { DateData } from '../DateData';
 import { stylingConfig } from '../../../StylingConfig';
 import { Circle } from '@mui/icons-material';
 
-const ListDate = () => {
+const ListDate = ({config}) => {
     const style = stylingConfig[0];
     return (
         <List>
-            {DateData.length > 0 && DateData.map((item) => (
+            {config?.length > 0 && config?.map((item) => (
                 <React.Fragment key={item.id}>
                     <Stack direction={'column'} spacing={1}>
                         <Stack direction={'row'} spacing={1} alignItems={'center'}>

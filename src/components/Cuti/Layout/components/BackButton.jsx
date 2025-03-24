@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { stylingConfig } from "../../../../StylingConfig";
+import { stylingConfig } from "../StylingConfig";
 
 const BackButtonBox = () => {
     const navigate = useNavigate();

@@ -25,7 +25,7 @@ const Header = () => {
                                     fontSize: '24px', 
                                     fontFamily: style.fontFamily, 
                                     color: '#3366FF', fontWeight:'700'
-                                    }}>Aulia Riza Farhan!</Typography></Typography>
+                                    }}> Aulia Riza Farhan!</Typography></Typography>
                             <Typography sx ={{fontSize: '18px', fontFamily: style.fontFamily, color: '#757575', fontWeight:'600'}}>Selamat Datang di Aplikasi Cuti</Typography>
                         </Stack >
                         <Box

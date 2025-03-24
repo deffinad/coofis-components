@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import * as MUIIcons from '@mui/icons-material';
 import { Box, ListItem, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { stylingConfig } from '../../../StylingConfig';
+import { useLocation } from "react-router-dom";
 
-const ListMenuItem = ({ item, level, selectedItem, setSelectedItem, parentSelected }) => {
+const ListMenuItem = ({ item, level, selectedItem, setSelectedItem, parentSelected, parentTitle }) => {
     const style = stylingConfig[0];
     let IconComponent = MUIIcons[item.icon];
 
     // Cek apakah item ini yang terpilih
     const isSelected = selectedItem === item.title;
+    const location = useLocation();
+    const isInMenuOperator = location.pathname.startsWith("/menuoperator");
+    const basePath = isInMenuOperator ? "/menuoperator" : "";
 
     const sxStyle = {
         cursor: 'pointer',
@@ -27,8 +31,16 @@ const ListMenuItem = ({ item, level, selectedItem, setSelectedItem, parentSelect
         mb: 1
     };
 
-    const formatLink = (title) => `/${title.toLowerCase().replace(/\s+/g, '')}`;
-    
+    // Perbaiki formatLink agar menyesuaikan path aktif
+    const formatLink = (title, parent) => {
+        const formattedTitle = title.toLowerCase().replace(/\s+/g, '');
+        if (parent) {
+            const formattedParent = parent.toLowerCase().replace(/\s+/g, '');
+            return `${basePath}/${formattedParent}/${formattedTitle}`;
+        }
+        return `${basePath}/${formattedTitle}`;
+    };
+
     return (
         <ListItem
             sx={sxStyle}
@@ -38,11 +50,13 @@ const ListMenuItem = ({ item, level, selectedItem, setSelectedItem, parentSelect
                 }
             }}
         >
-            <Link to={formatLink(item.title)} style={{ textDecoration: 'none', width: '100%' }}>
+            <Link to={formatLink(item.title, parentTitle)} style={{ textDecoration: 'none', width: '100%' }}>
                 <Stack direction={'row'} gap={1} alignItems={'center'}>
                     {item.icon && <IconComponent sx={{ fontSize: '16px', color: isSelected ? style.redColor : style.primaryColor }} />}
                     <Stack direction={'column'}>
-                        <Typography sx={{ fontSize: '16px', fontFamily: style.fontFamily, color: isSelected ? style.redColor : style.primaryColor, fontWeight: '400' }}>{item.title}</Typography>
+                        <Typography sx={{ fontSize: '16px', fontFamily: style.fontFamily, color: isSelected ? style.redColor : style.primaryColor, fontWeight: '400' }}>
+                            {item.title}
+                        </Typography>
                     </Stack>
                 </Stack>
             </Link>
@@ -60,8 +74,8 @@ ListMenuItem.propTypes = {
     level: PropTypes.number.isRequired,
     selectedItem: PropTypes.string.isRequired,
     setSelectedItem: PropTypes.func.isRequired,
-    parentSelected: PropTypes.bool
+    parentSelected: PropTypes.bool,
+    parentTitle: PropTypes.string,
 };
-
 
 export default ListMenuItem;

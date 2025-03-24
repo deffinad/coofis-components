@@ -84,7 +84,7 @@ export const DocsArsipCuti = [
                 'selesai': '04-10-2024',
                 'durasi': '7 hari',
                 'status': 'Selesai',
-                'tindakan' : '3'
+                'tindakan' : '4'
             }
         ]
     },

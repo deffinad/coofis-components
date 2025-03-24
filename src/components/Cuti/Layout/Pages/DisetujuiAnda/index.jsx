@@ -3,7 +3,7 @@ import { Stack, Box } from '@mui/material';
 import DropdownTampilkan from '../../components/Tampilkan';
 import InputSearchBar from '../../../../Inputs/InputSearchBar';
 import GenerateTable from '../../components/GenerateTable';
-import { DataDisetujui } from './DocsDisetujui';
+import { DataDisetujuiAnda } from './DocsDisetujuiAnda';
 
 const DisetujuiAnda = ({scrollbar}) => {
 
@@ -14,7 +14,7 @@ const DisetujuiAnda = ({scrollbar}) => {
                     <DropdownTampilkan value={10}></DropdownTampilkan>
                     <InputSearchBar></InputSearchBar>
                 </Stack>
-                <GenerateTable config={DataDisetujui}></GenerateTable>
+                <GenerateTable config={DataDisetujuiAnda}></GenerateTable>
             </Stack>
         </Box>
     )

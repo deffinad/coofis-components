@@ -4,16 +4,16 @@ import ArsipCuti from './Cuti/Layout/Pages/Dashboard/components/ArsipCuti'
 import KuotaCutiSaatIni from './Cuti/Layout/Pages/Dashboard/components/KuotaCutiPerSaatIni'
 import ListDate from './Cuti/Layout/Pages/Dashboard/components/ListDate';
 import MonitoringKuota from './Cuti/Layout/Pages/Dashboard/components/MonitoringKuota';
-import StatusDokumenCuti from './Cuti/Layout/Pages/Dashboard/components/StatusDokumenCuti';
+import StatusDokumenCutiDashboard from './Cuti/Layout/Pages/Dashboard/components/StatusDokumenCutiDashboard';
 import DisetujuiAnda from './Cuti/Layout/Pages/DisetujuiAnda';
 import ButuhPersetujuan from './Cuti/Layout/Pages/ButuhPersetujuan';
 import Draft from './Cuti/Layout/Pages/Draft';
-import StatusDokumenCuti2 from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/StatusDokumenCuti2';
-import YangMenyetujui from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/YangMenyetujui';
-import HistoriKomentar from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/HistoriKomentar';
-import ProfilPegawai from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/ProfilPegawai';
-import ToolButton from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/ToolButton';
-import BackButtonBox from './Cuti/Layout/Pages/ButuhPersetujuan/DetailDokumen/components/BackButton';
+import StatusDokumenCuti from './Cuti/Layout/components/Document/StatusDokumenCuti';
+import YangMenyetujui from './Cuti/Layout/components/Document/YangMenyetujui';
+import HistoriKomentar from './Cuti/Layout/components/Document/HistoriKomentar';
+import ProfilPegawai from './Cuti/Layout/components/Document/ProfilPegawai';
+import ToolButton from './Cuti/Layout/components/Document/ToolButton';
+import BackButtonBox from './Cuti/Layout/components/BackButton';
 
 export const Components = {
     Ratings,
@@ -22,11 +22,11 @@ export const Components = {
     KuotaCutiSaatIni,
     ListDate,
     MonitoringKuota,
-    StatusDokumenCuti,
+    StatusDokumenCutiDashboard,
     DisetujuiAnda,
     ButuhPersetujuan,
     Draft,
-    StatusDokumenCuti2,
+    StatusDokumenCuti,
     YangMenyetujui,
     HistoriKomentar,
     ProfilPegawai,

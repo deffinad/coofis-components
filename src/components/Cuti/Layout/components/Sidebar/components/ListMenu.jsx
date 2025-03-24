@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { List } from '@mui/material';
-import { CutiSidebarConfig } from '../../../CutiSidebarConfig';
 import ListMenuGroup from './ListMenuGroup';
 import ListMenuCollapse from './ListMenuCollapse';
 import ListMenuItem from './ListMenuItem';
 
-const ListMenu = () => {
+const ListMenu = ({config}) => {
     const [selectedItem, setSelectedItem] = useState('dashboard'); // Dashboard aktif di awal
 
     return (
         <List>
-            {CutiSidebarConfig.length > 0 && CutiSidebarConfig.map((item) => (
+            {config.length > 0 && config.map((item) => (
                 <React.Fragment key={item.id}>
                     {item.type === 'group' && <ListMenuGroup item={item} level={1} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />}
                     {item.type === 'collapse' && <ListMenuCollapse item={item} level={1} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />}

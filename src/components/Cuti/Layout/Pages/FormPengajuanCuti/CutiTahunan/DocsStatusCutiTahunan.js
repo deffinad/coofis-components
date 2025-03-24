@@ -1,9 +1,8 @@
-export const DataCuti2 = [
+export const DataStatusTahunan = [
     {
         'id': 1,
         'title':'Jenis Cuti',
         'isi':'Cuti Tahunan-Kementrian Kelautan dan Perikanan',
-        'Box':false
     },
     {
         'id': 2,
@@ -16,17 +15,14 @@ export const DataCuti2 = [
     {
         'id': 3,
         'title':'Status Dokumen',
-        'isi':'Disetujui',
-        'backColor':'#F5F5F5',
-        'fontColor':'#9E9E9E',
+        'isi':'Draft',
+        'backColor':'#474D66',
+        'fontColor':'white',
         'Box':true
     },
     {
         'id': 4,
-        'title':'Tipe Dokumen',
-        'isi':'Pengajuan Cuti',
-        'backColor':'#DCF2EA',
-        'fontColor':'#317159',
-        'Box':true
-    },
+        'title':'Maksimal Hari',
+        'isi':'90 Hari'
+    }
 ]

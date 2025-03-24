@@ -45,25 +45,26 @@ const ListMenuCollapse = ({ item, level, selectedItem, setSelectedItem }) => {
                 </ListItem>
 
                 <Collapse in={opened}>
-                    {item.children.map((child) => (
-                        <React.Fragment key={child.id}>
-                            {child.type === 'group' && (
-                                <ListMenuGroup item={child} level={level + 1} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
-                            )}
-                            {child.type === 'collapse' && (
-                                <ListMenuCollapse item={child} level={level + 1} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
-                            )}
-                            {child.type === 'item' && (
-                                <ListMenuItem
-                                    item={child}
-                                    level={level + 1}
-                                    selectedItem={selectedItem}
-                                    setSelectedItem={setSelectedItem}
-                                    parentSelected={selected} // Tambahkan prop parentSelected di sini
-                                />
-                            )}
-                        </React.Fragment>
-                    ))}
+                {item.children.map((child) => (
+                    <React.Fragment key={child.id}>
+                        {child.type === 'group' && (
+                            <ListMenuGroup item={child} level={level + 1} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+                        )}
+                        {child.type === 'collapse' && (
+                            <ListMenuCollapse item={child} level={level + 1} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+                        )}
+                        {child.type === 'item' && (
+                            <ListMenuItem
+                                item={child}
+                                level={level + 1}
+                                selectedItem={selectedItem}
+                                setSelectedItem={setSelectedItem}
+                                parentSelected={selected} 
+                                parentTitle={item.title} // Kirimkan title parent
+                            />
+                        )}
+                    </React.Fragment>
+                ))}
                 </Collapse>
             </Box>
         </React.Fragment>

@@ -1,4 +1,4 @@
-export const DataDisetujui = [
+export const DataSedangDiproses = [
     {
         "id": 1,
         "type": 'tableHeader',
@@ -41,23 +41,11 @@ export const DataDisetujui = [
             {
                 'id': 1.7,
                 'parent_id': 1,
-                'title': 'Pemohon',
-                'field': 'pemohon'
-            },
-            {
-                'id': 1.8,
-                'parent_id': 1,
                 'title': 'Yang Menyetujui',
                 'field': 'yangMenyetujui'
             },
             {
-                'id': 1.9,
-                'parent_id': 1,
-                'title': 'Status',
-                'field': 'status'
-            },
-            {
-                'id': 1.10,
+                'id': 1.8,
                 'parent_id': 1,
                 'title': 'Tindakan',
                 'field': 'tindakan'
@@ -79,52 +67,20 @@ export const DataDisetujui = [
                 'mulai': '08-04-2025',
                 'akhir': '09-04-2025',
                 'jenisCuti': 'Cuti Tahunan',
-                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
                 'yangMenyetujui': ['[1] SUPRIYATUN / 19811205022001', '[2] AULIA RIZA FARHAN / 197208122001121002'],
-                'status': 'Disetujui',
-                'tindakan' : '1'
+                'tindakan': '1'
             },
             {
                 'id': 2.2,
                 'parent_id': 2,
-                'no': 1,
+                'no': 2,
                 'tanggalPengajuan': ['03-03-2025', '15:33:46'],
                 'tipe': 'Pengajuan Cuti',
                 'mulai': '08-04-2025',
                 'akhir': '09-04-2025',
                 'jenisCuti': 'Cuti Tahunan',
-                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
                 'yangMenyetujui': ['[1] SUPRIYATUN / 19811205022001', '[2] AULIA RIZA FARHAN / 197208122001121002'],
-                'status': 'Disetujui',
-                'tindakan' : '1'
-            },
-            {
-                'id': 2.3,
-                'parent_id': 2,
-                'no': 1,
-                'tanggalPengajuan': ['03-03-2025', '15:33:46'],
-                'tipe': 'Pengajuan Cuti',
-                'mulai': '08-04-2025',
-                'akhir': '09-04-2025',
-                'jenisCuti': 'Cuti Tahunan',
-                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
-                'yangMenyetujui': ['[1] SUPRIYATUN / 19811205022001', '[2] AULIA RIZA FARHAN / 197208122001121002'],
-                'status': 'Disetujui',
-                'tindakan' : '1'
-            },
-            {
-                'id': 2.4,
-                'parent_id': 2,
-                'no': 1,
-                'tanggalPengajuan': ['03-03-2025', '15:33:46'],
-                'tipe': 'Pengajuan Cuti',
-                'mulai': '08-04-2025',
-                'akhir': '09-04-2025',
-                'jenisCuti': 'Cuti Tahunan',
-                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
-                'yangMenyetujui': ['[1] SUPRIYATUN / 19811205022001', '[2] AULIA RIZA FARHAN / 197208122001121002'],
-                'status': 'Disetujui',
-                'tindakan' : '1'
+                'tindakan': '1'
             }
         ]
     },

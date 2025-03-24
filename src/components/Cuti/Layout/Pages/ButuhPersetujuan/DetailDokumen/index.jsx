@@ -1,38 +1,33 @@
 import React from 'react';
-// import { useParams } from "react-router-dom";
-// import { useLocation } from "react-router-dom";
-import { Box, Grid2, Typography, Stack } from '@mui/material';
-import { stylingConfig } from '../../../StylingConfig';
-import StatusDokumenCuti2 from './components/StatusDokumenCuti2';
-import BackButtonBox from './components/BackButton';
-import ProfilPegawai from './components/ProfilPegawai';
-import Lampiran from './components/Lampiran';
-import YangMenyetujui from './components/YangMenyetujui';
-import ToolButton from './components/ToolButton';
-import HistoriKomentar from './components/HistoriKomentar';
-
+import { Grid2, Stack } from '@mui/material';
+import StatusDokumenCuti from '../../../components/Document/StatusDokumenCuti';
+import BackButtonBox from '../../../components/BackButton';
+import ProfilPegawai from '../../../components/Document/ProfilPegawai';
+import Lampiran from '../../../components/Document/Lampiran';
+import YangMenyetujui from '../../../components/Document/YangMenyetujui';
+import ToolButton from '../../../components/Document/ToolButton';
+import HistoriKomentar from '../../../components/Document/HistoriKomentar';
+import { DataCuti } from './DocsStatusDokumenCuti';
+import { DataKomentar } from './DocsHistoriKomentar';
+import { DataPenyetuju } from './DocsYangMenyetujui';
+import { DataPegawai } from './DocsProfilPegawai';
 
 const DetailDokumen = ({scrollbar}) => {
-    // const {id} = useParams(); #gunakan jika sudah ada backend
-    const style = stylingConfig[0]
-    
-    // const location = useLocation();
-    // const detailData = location.state?.detailData; // Ambil data lengkap dari state
 
     return (
         <Grid2 container>
             <Grid2 size = {{md: 7.5, lg: 7.5}}>
                 <Stack paddingTop={4} paddingLeft={4} direction= 'column' spacing={4}>
                     <BackButtonBox />
-                    <StatusDokumenCuti2 />
-                    <ProfilPegawai />
+                    <StatusDokumenCuti config = {DataCuti} />
+                    <ProfilPegawai config = {DataPegawai} />
                     <Lampiran />
                 </Stack>
             </Grid2>
             <Grid2 size = {{md: 4.5, lg: 4.5}}>
                 <Stack p={4} direction= 'column' spacing={4}>
-                    <YangMenyetujui />
-                    <HistoriKomentar />
+                    <YangMenyetujui config = {DataPenyetuju}/>
+                    <HistoriKomentar config = {DataKomentar} />
                     <ToolButton />
                 </Stack>
             </Grid2>
