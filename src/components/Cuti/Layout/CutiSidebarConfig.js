@@ -74,7 +74,7 @@ export const CutiSidebarConfig = [
                     "menu_position_id": 1, // follow parent
                     "order": 1, // order based on parent_id
                     "lang": "en",
-                    "title": "Cuti Besar",
+                    "title": "Cuti Hari Besar",
                     "sub_title": "",
                     "icon": "InsertDriveFileOutlined",
                     "image_icon": "",

@@ -14,6 +14,9 @@ import {
 } from "@mui/material";
 import * as MUIIcons from '@mui/icons-material'
 import { stylingConfig } from "../StylingConfig";
+import { useNavigate, useLocation } from "react-router-dom";
+import CustomToolTip from "./CustomToolTip";
+import CustomDialog from "./DialogBox";
 
 const style = stylingConfig[0];
 const FONT_SIZE = "12px";
@@ -32,17 +35,27 @@ const tableStyle = (color = style.primaryColor, weight = FONT_WEIGHT, bgColor = 
 const statusStyle = {
   Selesai: { color: "white", background: "#52BD94" },
   Disetujui: { color: "white", background: "#52BD94" },
-  Pending: { color: "white", background: "#FFB020" },
+  Ditangguhkan: { color: "white", background: "#FFB020" },
   Diproses: { color: "white", background: "#FFB020" },
   Ditolak: { color: "white", background: "#CB3A31" },
   Batal: { color: "white", background: "#CB3A31" },
 };
 
 const GenerateTable = ({ config }) => {
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [selectedRow, setSelectedRow] = React.useState(null);
+
+  const handleDeleteClick = (row) => {
+    setSelectedRow(row);
+    setDialogOpen(true);
+  };
+
   const headers = config.find(item => item.type === 'tableHeader')?.children || [];
   const tableData = config.find(item => item.type === 'tableCell') || {};
   const rows = tableData.children || [];
   const showPagination = tableData.pagination === 1;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const columns = headers.map(header => ({
     label: header.title,
@@ -58,7 +71,7 @@ const GenerateTable = ({ config }) => {
           <TableHead sx={{ backgroundColor: "#F5F5F5" }}>
             <TableRow>
               {columns.map((col, index) => (
-                <TableCell key={index} sx={{...tableStyle("#0A0A0A", "700"), fontSize:FONT_SIZE}}>
+                <TableCell key={index} sx={{...tableStyle(style.blackColor, "700"), fontSize:FONT_SIZE}}>
                   {col.label}
                 </TableCell>
               ))}
@@ -111,13 +124,32 @@ const GenerateTable = ({ config }) => {
                     ) : col.field === "tindakan" ? (
                       // Tidak mengubah font untuk tindakan
                       row[col.field] === "1" ? (
-                        <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer" }} />
+                        <CustomToolTip placeholder={'Lihat'}>
+                          <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "20px", color: "#3366FF", cursor: "pointer" }} />
+                        </CustomToolTip>
                       ) : row[col.field] === "2" ? (
-                        <>
-                          <MUIIcons.CreateOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer", marginRight: "4px" }} />
-                          <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "22px", color: "#3366FF", cursor: "pointer" }} />
-                        </>
+                        <Stack direction={'row'} justifyContent={'center'}>
+                          <CustomToolTip placeholder={'Ubah'}>
+                            <MUIIcons.CreateOutlined sx={{ fontSize: "20px", color: "#3366FF", cursor: "pointer", marginRight: "4px" }} />
+                          </CustomToolTip>
+                          <CustomToolTip placeholder={'Hapus'}>
+                          <MUIIcons.DeleteOutline
+                            sx={{ fontSize: "20px", color: "#FF5630", cursor: "pointer" }}
+                            onClick={() => handleDeleteClick(row)}/>
+                          </CustomToolTip>
+                        </Stack>
                       ) : row[col.field] === "3" ? (
+                        <Stack direction={'row'} justifyContent={'center'} spacing={2}>
+                          <CustomToolTip placeholder={'Lihat'}>
+                            <MUIIcons.RemoveRedEyeOutlined sx={{ fontSize: "20px", color: "#3366FF", cursor: "pointer" }} />
+                          </CustomToolTip>
+                          <CustomToolTip placeholder={'Batalkan'}>
+                          <MUIIcons.Close
+                            sx={{ fontSize: "20px", color: "#FF5630", cursor: "pointer" }}
+                            onClick={() => handleDeleteClick(row)}/>
+                          </CustomToolTip>
+                        </Stack>
+                      ) : row[col.field] === "4" ? (
                         <Box
                           sx={{
                             backgroundColor: "#FFB020",
@@ -131,6 +163,8 @@ const GenerateTable = ({ config }) => {
                             width: "fit-content",
                             fontFamily: style.fontFamily,
                           }}
+                          // onClick={() => navigate(`${location.pathname}/detaildokumen`, { state: { detailData: row } })}
+                          onClick={() => navigate(`${location.pathname}/detaildokumen`)}
                         >
                           <MUIIcons.CreateOutlined sx={{ fontSize: "14px", color: "#FFF", marginRight: "4px" }} />
                           <Typography fontSize="11px" fontFamily={style.fontFamily}>
@@ -160,8 +194,8 @@ const GenerateTable = ({ config }) => {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} sx={tableStyle("#999", "400", "center")}>
-                  Tidak ada data
+                <TableCell colSpan={columns.length} sx={tableStyle("#9E9E9E", "800", "#EDEDED")}>
+                  <Typography fontFamily= {style.fontFamily} fontWeight={800} fontSize={14}>Data tidak tersedia</Typography>
                 </TableCell>
               </TableRow>
             )}
@@ -171,10 +205,20 @@ const GenerateTable = ({ config }) => {
 
       {/* Pagination */}
       {showPagination && (
-        <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%", paddingTop: "10px" }}>
-          <Pagination count={3} color="primary" />
-        </Box>
+        <Stack direction={'row'} justifyContent={'space-between'} sx={{ width: "100%", paddingTop: "10px" }}>
+          <Typography fontFamily={style.fontFamily} color='black' fontSize={14}>Menampilkan 1 sampai 1 entri</Typography>
+          <Pagination count={2} color={style.primaryColor} sx ={{"& .MuiPaginationItem-root:focus": {outline: "none", boxShadow: "none" }}}/>
+        </Stack>
       )}
+      <CustomDialog
+      open={dialogOpen}
+      onClose={() => setDialogOpen(false)}
+      title="Hapus Dokumen"
+      text={selectedRow?.dialogTeks}
+      onConfirm={() => {
+        setDialogOpen(false);
+      }}
+    />
     </Stack>
   );
 };
