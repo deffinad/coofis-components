@@ -243,7 +243,7 @@ export const CutiSidebarConfig = [
                 "external_url": "", // use only to launch external website
                 "active": true,
                 "clickable": true, // if not then work for hover only
-                'count': ' ',
+                'count': '4',
                 "type": 'item',
             },
             {

@@ -1,21 +1,22 @@
 import React from 'react';
-import { Stack, Box } from '@mui/material';
-import DropdownTampilkan from '../../components/Tampilkan';
-import InputSearchBar from '../../../../Inputs/InputSearchBar';
-import GenerateTable from '../../components/GenerateTable';
+import { Stack, Typography, Box } from '@mui/material';
+import { stylingConfig } from '../../StylingConfig';
+import OperatorKKPDitemukan from '../components/OperatorKKPDitemukan';
+import { DataOperatorKKPDitemukan } from '../DocsOperatorKKPDitemukan';
+import OperatorKKPDitambahkan from '../components/OperatorKKPDitambahkan';
+import { DataOperatorKKPDitambahkan } from '../DocsOperatorKKPDitambahkan';
 
-const KelolaOperatorKKP = ({scrollbar}) => {
+const KelolaOperatorKKP = () => {
+    const style = stylingConfig[0]
 
     return (
-        <Box p={5}>
-            <Stack direction='column' p={4} spacing = {4} sx={{...scrollbar('#9E9E9E'), maxHeight:'100%', overflow: "auto", backgroundColor:'white', borderRadius:3}}>
-                <Stack direction='row' justifyContent='space-between'>
-                    <DropdownTampilkan value={10}></DropdownTampilkan>
-                    <InputSearchBar></InputSearchBar>
-                </Stack>
-                <GenerateTable config></GenerateTable>
-            </Stack>
-        </Box>
+        <Stack p={5} direction={'column'} spacing={5}>
+            <Box p={4} sx={{ maxHeight:'100%', backgroundColor:'white', borderRadius:3}}>
+                <Typography color = 'black' fontFamily={style.fontFamily} fontSize={20} fontWeight={700} sx={{mb: 2}}> Kelola Operator KKP </Typography>
+                <OperatorKKPDitemukan config = {DataOperatorKKPDitemukan} />
+            </Box>
+            <OperatorKKPDitambahkan config = {DataOperatorKKPDitambahkan} />
+        </Stack>
     )
 }
 

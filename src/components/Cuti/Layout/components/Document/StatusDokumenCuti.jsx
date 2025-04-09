@@ -39,7 +39,7 @@ const StatusDokumenCuti = ({config}) => {
                         <Grid2 item md={9.2} lg={9.2} sx={{ display: 'flex', flexDirection: 'column', gap: 1.5}}>
                             {config.map((item) => (
                                 item.title === "Sub Jenis Cuti" ? (
-                                    <CustomAutocomplete id={item.id} opsi={item.opsi} placeholder={item.placeholder}/>
+                                    <CustomAutocomplete key= {item.id} id = {item.id} opsi={item.opsi} placeholder={item.placeholder}/>
                                 ) : item.Box ? (
                                     <Box key={item.id} sx={BoxColor(item.backColor, item.fontColor)} >
                                         {item.isi}

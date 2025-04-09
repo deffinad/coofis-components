@@ -17,7 +17,7 @@ import { DataInfoKuotaMelahirkan } from './DocsInfoKuotaCutiMelahirkan';
 
 
 
-const CutiMelahirkan = ({scrollbar}) => {
+const CutiMelahirkan = () => {
     const style = stylingConfig[0]
 
     return (

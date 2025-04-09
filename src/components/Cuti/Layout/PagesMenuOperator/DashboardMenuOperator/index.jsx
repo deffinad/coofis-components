@@ -2,14 +2,25 @@ import { Stack, Card, CardContent, Typography, Box } from "@mui/material";
 import * as MUIIcons from "@mui/icons-material";
 import { stylingConfig } from "../../StylingConfig";
 
-const DashboardMenuOperator = ({ config, scrollbar }) => {
+const DashboardMenuOperator = ({ config }) => {
   const style = stylingConfig[0];
+
+  // Fungsi untuk membagi array menjadi chunk
+  const chunkArray = (arr, size) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i += size) {
+      result.push(arr.slice(i, i + size));
+    }
+    return result;
+  };
+
+  const rows = chunkArray(config, 3); // bagi jadi baris per 3 item
 
   return (
     <Stack direction="column" spacing={2} justifyContent="space-evenly" p={4}>
-      {[0, 1].map((row) => (
-        <Stack key={row} direction="row" spacing={3} justifyContent="space-evenly" maxWidth="100%">
-          {config?.slice(row * 3, row * 3 + 3).map((item) => {
+      {rows.map((row, rowIndex) => (
+        <Stack key={rowIndex} direction="row" spacing={3} justifyContent="space-evenly" maxWidth="100%">
+          {row.map((item) => {
             const IconComponent = MUIIcons[item.icon];
             return (
               <Card key={item.id} sx={{ borderRadius: 2, width: 330, textAlign: "center", paddingX: 0, boxShadow: "2px 2px 8px rgba(0,0,0,0.1)" }}>

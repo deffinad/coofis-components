@@ -14,10 +14,10 @@ import HistoriKomentar from '../../../components/Document/HistoriKomentar';
 import { DataKomentarTahunan } from './DocsHistoriKomentarTahunan';
 import InfoKuota from '../components/InfoKuota';
 import { DataInfoKuotaTahunan } from './DocsInfoKuotaCutiTahunan';
+import { scrollbar } from '../../../utils/scrollbar';
 
 
-
-const CutiTahunan = ({scrollbar}) => {
+const CutiTahunan = () => {
     const style = stylingConfig[0]
 
     return (
@@ -32,7 +32,7 @@ const CutiTahunan = ({scrollbar}) => {
             <Grid2 size = {{md: 4.5, lg: 4.5}}>
                 <Stack p={4} direction= 'column' spacing={4}>
                     <InfoKuota config = {DataInfoKuotaTahunan} />
-                    <YangMenyetujui config = {DataPenyetujuTahunan} />
+                    <YangMenyetujui config = {DataPenyetujuTahunan} scrollbar = {scrollbar}/>
                     <HistoriKomentar config = {DataKomentarTahunan} />
                     <ToolButton four = {false} back = {false} />
                 </Stack>

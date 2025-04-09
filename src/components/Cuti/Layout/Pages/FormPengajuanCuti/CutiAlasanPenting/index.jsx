@@ -16,8 +16,7 @@ import InfoKuota from '../components/InfoKuota';
 import { DataInfoKuotaAlasanPenting } from './DocsInfoKuotaCutiAlasanPenting';
 
 
-
-const CutiAlasanPenting = ({scrollbar}) => {
+const CutiAlasanPenting = () => {
     const style = stylingConfig[0]
 
     return (

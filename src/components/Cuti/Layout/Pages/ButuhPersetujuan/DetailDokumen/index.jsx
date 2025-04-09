@@ -12,7 +12,7 @@ import { DataKomentar } from './DocsHistoriKomentar';
 import { DataPenyetuju } from './DocsYangMenyetujui';
 import { DataPegawai } from './DocsProfilPegawai';
 
-const DetailDokumen = ({scrollbar}) => {
+const DetailDokumen = ({config = DataKomentar, tool = true}) => {
 
     return (
         <Grid2 container>
@@ -27,8 +27,10 @@ const DetailDokumen = ({scrollbar}) => {
             <Grid2 size = {{md: 4.5, lg: 4.5}}>
                 <Stack p={4} direction= 'column' spacing={4}>
                     <YangMenyetujui config = {DataPenyetuju}/>
-                    <HistoriKomentar config = {DataKomentar} />
-                    <ToolButton />
+                    <HistoriKomentar config = {config} />
+                    {tool ? (
+                        <ToolButton />
+                    ) : null}
                 </Stack>
             </Grid2>
         </Grid2>

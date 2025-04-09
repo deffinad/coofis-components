@@ -65,7 +65,7 @@ const HistoriKomentar = ({config}) => {
                                     <Box sx={BoxStyle(statusStyle[item.status]?.background || 'gray', statusStyle[item.status]?.color)}>
                                         {item.status}
                                     </Box>
-                                    {item.dokumen !== false && (
+                                    {!config[0].draft && (
                                         <Typography
                                             component="span"
                                             fontSize={'12px'}

@@ -16,8 +16,8 @@ const ListDate = ({config}) => {
                                 {item.date}
                             </Typography>
                         </Stack>
-                        <Box paddingLeft={2.5} paddingBottom={1}>
-                            <Typography sx={{ fontSize: '16px', fontFamily: style.fontFamily, color: style.primaryColor, fontWeight: '600' }}>
+                        <Box paddingLeft={2.5} paddingBottom={1} >
+                            <Typography lineHeight={1.3} sx={{ fontSize: '16px', fontFamily: style.fontFamily, color: style.primaryColor, fontWeight: '600' }}>
                                     {item.title}
                             </Typography>
                         </Box>

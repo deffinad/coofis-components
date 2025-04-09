@@ -4,8 +4,9 @@ import { Stack, Box } from '@mui/material'
 import InputSearchBar from '../../../../Inputs/InputSearchBar'
 import DropdownTampilkan from '../../components/Tampilkan'
 import GenerateTable from '../../components/GenerateTable'
+import { scrollbar } from '../../utils/scrollbar'
 
-const Draft = ({scrollbar}) => {
+const Draft = () => {
 
     return (
         <Box p={5}>

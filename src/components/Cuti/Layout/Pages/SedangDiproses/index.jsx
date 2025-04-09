@@ -4,8 +4,9 @@ import DropdownTampilkan from '../../components/Tampilkan';
 import InputSearchBar from '../../../../Inputs/InputSearchBar';
 import GenerateTable from '../../components/GenerateTable';
 import { DataSedangDiproses } from './DocsSedangDiproses';
+import { scrollbar } from '../../utils/scrollbar';
 
-const SedangDiproses = ({scrollbar}) => {
+const SedangDiproses = () => {
 
     return (
         <Box p={5}>

@@ -4,8 +4,9 @@ import DropdownTampilkan from '../../components/Tampilkan';
 import InputSearchBar from '../../../../Inputs/InputSearchBar';
 import GenerateTable from '../../components/GenerateTable';
 import { DataTidakDisetujui } from './DocsTidakDisetujui';
+import { scrollbar } from '../../utils/scrollbar';
 
-const TidakDisetujui = ({scrollbar}) => {
+const TidakDisetujui = () => {
 
     return (
         <Box p={5}>

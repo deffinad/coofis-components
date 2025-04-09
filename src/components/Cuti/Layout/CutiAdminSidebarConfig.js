@@ -28,7 +28,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Kelola Operator KKP",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "ManageAccountsOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -44,7 +44,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Kelola Operator Unit Kerja",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "ManageAccountsOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -60,7 +60,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Kelola Operator Satuan Kerja",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "ManageAccountsOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -76,7 +76,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Pengaturan Jenis Cuti",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "SettingsOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -92,7 +92,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Pengaturan Hari Cuti",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "EventRepeatOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -108,7 +108,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Kelola Kuota Cuti",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "PieChartOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -124,7 +124,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Sedang Proses",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "Timelapse",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website
@@ -140,7 +140,7 @@ export const CutiAdminSidebarConfig = [
             "lang": "en",
             "title": "Dokumen Cuti",
             "sub_title": "",
-            "icon": "HelpOutline",
+            "icon": "InsertDriveFileOutlined",
             "image_icon": "",
             "image_cover": "",
             "external_url": "", // use only to launch external website

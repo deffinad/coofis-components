@@ -15,9 +15,7 @@ import { DataKomentarSakit } from './DocsHistoriKomentarSakit';
 import InfoKuota from '../components/InfoKuota';
 import { DataInfoKuotaSakit } from './DocsInfoKuotaCutiSakit';
 
-
-
-const CutiSakit = ({scrollbar}) => {
+const CutiSakit = () => {
     const style = stylingConfig[0]
 
     return (

@@ -9,15 +9,16 @@ import { DataPegawaiHariBesar } from './DocsProfilPegawaiHariBesar';
 import Lampiran from '../../../components/Document/Lampiran';
 import { DataLampiranHariBesar } from './DocsLampiranHariBesar';
 import YangMenyetujui from '../../../components/Document/YangMenyetujui';
-import { DataPenyetujuHariBesar } from './DocsYangMenyetujuiHariBesarjs';
+import { DataPenyetujuHariBesar } from './DocsYangMenyetujuiHariBesar.js';
 import HistoriKomentar from '../../../components/Document/HistoriKomentar';
 import { DataKomentarHariBesar } from './DocsHistoriKomentarHariBesar';
 import InfoKuota from '../components/InfoKuota';
 import { DataInfoKuotaHariBesar } from './DocsInfoKuotaCutiHariBesar';
+import { scrollbar } from '../../../utils/scrollbar';
 
 
 
-const CutiHariBesar = ({scrollbar}) => {
+const CutiHariBesar = () => {
     const style = stylingConfig[0]
 
     return (
@@ -32,7 +33,7 @@ const CutiHariBesar = ({scrollbar}) => {
             <Grid2 size = {{md: 4.5, lg: 4.5}}>
                 <Stack p={4} direction= 'column' spacing={4}>
                     <InfoKuota config = {DataInfoKuotaHariBesar} />
-                    <YangMenyetujui config = {DataPenyetujuHariBesar} />
+                    <YangMenyetujui config = {DataPenyetujuHariBesar} scrollbar = {scrollbar} />
                     <HistoriKomentar config = {DataKomentarHariBesar} />
                     <ToolButton four = {false} back = {false} />
                 </Stack>

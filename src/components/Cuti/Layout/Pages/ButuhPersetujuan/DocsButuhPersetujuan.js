@@ -49,9 +49,42 @@ export const DataButuhPersetujuan = [
                 'parent_id': 1,
                 'title': 'Tindakan',
                 'field': 'tindakan'
-            }
-            
+            }   
         ]
-    },
+    },{
+        "id": 2,
+        "type": 'tableCell',
+        "pagination": 1,
+        "children": [
+            {
+                'id': 2.1,
+                'parent_id': 2,
+                'no': 1,
+                'tanggalPengajuan': ['03-03-2025', '15:33:46'],
+                'tipe': 'Pengajuan Cuti',
+                'mulai': '08-04-2025',
+                'akhir': '09-04-2025',
+                'jenisCuti': 'Cuti Tahunan',
+                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
+                'yangMenyetujui': ['[1] SUPRIYATUN / 19811205022001', '[2] AULIA RIZA FARHAN / 197208122001121002'],
+                'status': 'Disetujui',
+                'tindakan' : '4'
+            },
+            {
+                'id': 2.2,
+                'parent_id': 2,
+                'no': 1,
+                'tanggalPengajuan': ['03-03-2025', '15:33:46'],
+                'tipe': 'Pengajuan Cuti',
+                'mulai': '08-04-2025',
+                'akhir': '09-04-2025',
+                'jenisCuti': 'Cuti Tahunan',
+                'pemohon': 'NIKMAH RATRI FIANI / 198906022019022007',
+                'yangMenyetujui': ['[1] SUPRIYATUN / 19811205022001', '[2] AULIA RIZA FARHAN / 197208122001121002'],
+                'status': 'Disetujui',
+                'tindakan' : '4'
+            }
+        ]
+    }
 
 ]

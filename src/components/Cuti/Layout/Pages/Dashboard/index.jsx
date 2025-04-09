@@ -12,8 +12,9 @@ import { KuotaCuti1 } from './DocsKuotaCuti1'
 import { KuotaCuti2 } from './DocsKuotaCuti2'
 import ArsipCuti from './components/ArsipCuti';
 import { DocsArsipCuti } from './DocsArsipCuti'
+import { scrollbar } from '../../utils/scrollbar';
 
-const Dashboard = ({scrollbar}) => {
+const Dashboard = () => {
     const style = stylingConfig[0]
 
     return (
@@ -29,7 +30,7 @@ const Dashboard = ({scrollbar}) => {
             <Grid2 size = {{md: 2.5, lg: 2.5}} maxHeight = {'100%'}>
                 <Box minHeight={'100vh'}  backgroundColor= 'white' overflow= 'auto' sx ={{ boxShadow: '-5px 6px 8px rgba(0, 0, 0, 0.2), inset -3px 5px 6px rgba(0, 0, 0, 0.17)'}}  >
                     <Stack direction='column' p={3} sx={{ ...scrollbar('#E0E0E0'), maxHeight:'100vh', overflow: "auto"}} >
-                        <Typography sx={{textAlign:'center', fontSize: '17px', fontWeight: '700', fontFamily: style.fontFamily, color: style.primaryColor}}>Libur Nasional 2025</Typography>
+                        <Typography sx={{textAlign:'flex-start', fontSize: '17px', fontWeight: '700', fontFamily: style.fontFamily, color: style.primaryColor}}>Libur Nasional 2025</Typography>
                         <ListDate config = {DateData} />
                     </Stack>
                 </Box>
