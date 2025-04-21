@@ -1,7 +1,7 @@
 import React from 'react'
 import { DataDraft } from './DocsDraft'
 import { Stack, Box } from '@mui/material'
-import InputSearchBar from '../../../../Inputs/InputSearchBar'
+import InputSearchBar from '../../../../Input/InputSearchBar'
 import DropdownTampilkan from '../../components/Tampilkan'
 import GenerateTable from '../../components/GenerateTable'
 import { scrollbar } from '../../utils/scrollbar'

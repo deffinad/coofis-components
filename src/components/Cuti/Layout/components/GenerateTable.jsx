@@ -86,8 +86,6 @@ const GenerateTable = ({ config }) => {
   const tableData = config?.find(item => item.type === 'tableCell') || {};
   const rows = tableData.children || [];
   const showPagination = tableData.pagination === 1;
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const columns = headers.map(header => ({
     label: header.title,

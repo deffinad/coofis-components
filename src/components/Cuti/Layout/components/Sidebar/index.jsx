@@ -1,8 +1,7 @@
 import React from 'react'
 import { Stack } from '@mui/material'
 import ListMenu from './components/ListMenu';
-import InputSearchBar from '../../../../Inputs/InputSearchBar';
-import { stylingConfig } from '../../StylingConfig';
+import InputSearchBar from '../../../../Input/InputSearchBar';
 
 const AppSidebar = ({config}) => {
 

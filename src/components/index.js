@@ -1,5 +1,6 @@
 import { default as Ratings } from './Ratings';
-import * as Input from './Inputs'
+import * as Input from './Input/index'
+import { default as Navbar } from "./Navbar";
 import ArsipCuti from './Cuti/Layout/Pages/Dashboard/components/ArsipCuti'
 import KuotaCutiSaatIni from './Cuti/Layout/Pages/Dashboard/components/KuotaCutiPerSaatIni'
 import ListDate from './Cuti/Layout/Pages/Dashboard/components/ListDate';
@@ -18,18 +19,19 @@ import BackButtonBox from './Cuti/Layout/components/BackButton';
 export const Components = {
     Ratings,
     Input,
+    Navbar,
     ArsipCuti,
     KuotaCutiSaatIni,
     ListDate,
     MonitoringKuota,
     StatusDokumenCutiDashboard,
-    DisetujuiAnda,
-    ButuhPersetujuan,
-    Draft,
+    DisetujuiAnda, // belum bisa
+    ButuhPersetujuan, // belum bisa
+    Draft, // belum bisa
     StatusDokumenCuti,
     YangMenyetujui,
     HistoriKomentar,
     ProfilPegawai,
-    ToolButton,
+    ToolButton, // belum bisa
     BackButtonBox
 }

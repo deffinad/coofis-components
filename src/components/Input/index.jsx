@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import PropTypes from "prop-types";
 
-const InputField = ({ id, name, label, value, type, onChange }) => {
+const Input = ({id,  name,  label,  value,  tipe,  placeholder,  onChange,onClick,}) => {
   return (
     <TextField
       id={id}
@@ -9,24 +9,27 @@ const InputField = ({ id, name, label, value, type, onChange }) => {
       label={label}
       variant="outlined"
       value={value}
-      type={type}
-      onChange={onChange}
+      type={tipe}
+      placeholder={placeholder}
+      fullWidth
     />
   );
 };
 
-InputField.defaultProps = {
+Input.defaultProps = {
   type: "text",
-  onChange: () => {}
+  onChange: () => {},
 };
 
-InputField.propTypes = {
+Input.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   type: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  sx: PropTypes.any,
 };
 
-export default InputField;
+export default Input;
