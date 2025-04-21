@@ -12,7 +12,7 @@ import YangMenyetujui from '../../../components/Document/YangMenyetujui';
 import { DataPenyetujuTahunan } from './DocsYangMenyetujuiTahunan';
 import HistoriKomentar from '../../../components/Document/HistoriKomentar';
 import { DataKomentarTahunan } from './DocsHistoriKomentarTahunan';
-import InfoKuota from '../components/InfoKuota';
+import InfoKuota from '../components/Info';
 import { DataInfoKuotaTahunan } from './DocsInfoKuotaCutiTahunan';
 import { scrollbar } from '../../../utils/scrollbar';
 
@@ -31,7 +31,12 @@ const CutiTahunan = () => {
             </Grid2>
             <Grid2 size = {{md: 4.5, lg: 4.5}}>
                 <Stack p={4} direction= 'column' spacing={4}>
-                    <InfoKuota config = {DataInfoKuotaTahunan} />
+                    <Box p={2} sx={{ minHeight: '210px', height:'100%', backgroundColor: 'white', borderRadius: 2, boxShadow: '1px 6px 8px rgba(0, 0, 0, 0.1)'}}>
+                        <Stack direction= 'column' spacing={4}>
+                            <Typography sx={{fontStyle: 'italic',fontSize:'20px', color:style.blackColor, fontFamily:style.fontFamily, fontWeight: '600'}}> Info Kuota </Typography>
+                            <InfoKuota config = {DataInfoKuotaTahunan} widget = {false} />
+                        </Stack>
+                    </Box>
                     <YangMenyetujui config = {DataPenyetujuTahunan} scrollbar = {scrollbar}/>
                     <HistoriKomentar config = {DataKomentarTahunan} />
                     <ToolButton four = {false} back = {false} />

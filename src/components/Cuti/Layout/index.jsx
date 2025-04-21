@@ -27,7 +27,7 @@ import KelolaOperatorKKP from './PagesMenuOperator/KelolaOperatorKKP';
 import KelolaOperatorUnitKerja from './PagesMenuOperator/KelolaOperatorUnitKerja';
 import { DataOperatorUnitKerja } from './PagesMenuOperator/DocsOperatorUnitKerja';
 import KelolaOperatorSatuanKerja from './PagesMenuOperator/KelolaOperatorSatuanKerja';
-import KelolaOperator from './PagesMenuOperator/components/documents/KelolaOperator';
+import KelolaOperator from './PagesMenuOperator/components/SettingPage/KelolaOperator';
 import { DataOperatorKKPDitambahkan } from './PagesMenuOperator/DocsOperatorKKPDitambahkan';
 import { DataOperatorKKPDitemukan } from './PagesMenuOperator/DocsOperatorKKPDitemukan';
 import SedangProses from './PagesMenuOperator/SedangProses';
@@ -38,22 +38,22 @@ import { DataKomentarDiproses } from './Pages/SedangDiproses/DocsHistoriKomentar
 import PengaturanHariCuti from './PagesMenuOperator/PengatruanHariCuti';
 import { DataPengaturanHariKerja1 } from './PagesMenuOperator/DocsPengaturanCuti1';
 import { DataPengaturanHariKerja2 } from './PagesMenuOperator/DocsPengaturanCuti2';
-import KelolaLiburanNasional from './PagesMenuOperator/components/documents/KelolaLiburanNasional';
+import KelolaLiburanNasional from './PagesMenuOperator/components/SettingPage/KelolaLiburanNasional';
 import { DataLiburNasional } from './PagesMenuOperator/DocsPengaturanLiburNasional';
-import KelolaCutiBersama from './PagesMenuOperator/components/documents/KelolaCutiBersama';
+import KelolaCutiBersama from './PagesMenuOperator/components/SettingPage/KelolaCutiBersama';
 import { DataCutiBersama } from './PagesMenuOperator/DocsPengaturanCutiBersama';
 import PengaturanJenisCuti from './PagesMenuOperator/PengaturanJenisCuti';
 import { DataPengaturanJenisCuti } from './PagesMenuOperator/DocsPengaturanJenisCuti';
-import UbahDataJenisCuti from './PagesMenuOperator/components/documents/UbahDataJenisCuti';
+import UbahDataJenisCuti from './PagesMenuOperator/components/SettingPage/UbahDataJenisCuti';
 import KelolaKuotaCuti from './PagesMenuOperator/KelolaKuotaCuti';
 import { DataJenisCuti } from './PagesMenuOperator/DocsUbahJenisCuti';
-import KelolaSubJenisCuti from './PagesMenuOperator/components/documents/KelolaSubJenisCuti';
+import KelolaSubJenisCuti from './PagesMenuOperator/components/SettingPage/KelolaSubJenisCuti';
 import { DataSubJenisCuti } from './PagesMenuOperator/DocsUbahSubJenisCuti';
 import { DataKuotaCuti1 } from './PagesMenuOperator/DocsKelolaKuotaCuti1';
 import { DataKuotaCuti2 } from './PagesMenuOperator/DocsKelolaKuotaCuti2';
-import DetailError from './PagesMenuOperator/components/documents/DetailError';
+import DetailError from './PagesMenuOperator/components/SettingPage/DetailError';
 import { DataDetailError } from './PagesMenuOperator/DocsDetailError';
-import DetailPengaturanPerUser from './PagesMenuOperator/components/documents/DetailPengaturanPerUser';
+import DetailPengaturanPerUser from './PagesMenuOperator/components/SettingPage/DetailPengaturanPerUser';
 import { DataPengaturanUser } from './PagesMenuOperator/DocsPengaturanUser';
 
 const Layout = () => {

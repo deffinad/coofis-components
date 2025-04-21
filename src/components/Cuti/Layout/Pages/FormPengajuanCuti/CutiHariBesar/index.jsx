@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid2, Stack } from '@mui/material';
+import { Grid2, Stack, Box, Typography } from '@mui/material';
 import ToolButton from '../../../components/Document/ToolButton';
 import { stylingConfig } from '../../../StylingConfig';
 import StatusDokumenCuti from '../../../components/Document/StatusDokumenCuti';
@@ -12,7 +12,7 @@ import YangMenyetujui from '../../../components/Document/YangMenyetujui';
 import { DataPenyetujuHariBesar } from './DocsYangMenyetujuiHariBesar.js';
 import HistoriKomentar from '../../../components/Document/HistoriKomentar';
 import { DataKomentarHariBesar } from './DocsHistoriKomentarHariBesar';
-import InfoKuota from '../components/InfoKuota';
+import InfoKuota from '../components/Info/index.jsx';
 import { DataInfoKuotaHariBesar } from './DocsInfoKuotaCutiHariBesar';
 import { scrollbar } from '../../../utils/scrollbar';
 
@@ -32,7 +32,12 @@ const CutiHariBesar = () => {
             </Grid2>
             <Grid2 size = {{md: 4.5, lg: 4.5}}>
                 <Stack p={4} direction= 'column' spacing={4}>
-                    <InfoKuota config = {DataInfoKuotaHariBesar} />
+                    <Box p={2} sx={{ minHeight: '210px', height:'100%', backgroundColor: 'white', borderRadius: 2, boxShadow: '1px 6px 8px rgba(0, 0, 0, 0.1)'}}>
+                        <Stack direction= 'column' spacing={4}>
+                            <Typography sx={{fontStyle: 'italic',fontSize:'20px', color:style.blackColor, fontFamily:style.fontFamily, fontWeight: '600'}}> Info Kuota </Typography>
+                            <InfoKuota config = {DataInfoKuotaHariBesar} />
+                        </Stack>
+                    </Box>
                     <YangMenyetujui config = {DataPenyetujuHariBesar} scrollbar = {scrollbar} />
                     <HistoriKomentar config = {DataKomentarHariBesar} />
                     <ToolButton four = {false} back = {false} />
