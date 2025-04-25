@@ -1,1 +1,9 @@
 export const SPACING = 2
+export const backGroundColor = '#EEF0F7'
+export const primaryColor = '#404040'
+export const secondaryColor = '#9E9E9E'
+export const fontFamily = '"Nunito Sans", sans-serif'
+export const redColor = '#EA001E'
+export const selected = '#F5F5F5'
+export const selectedChild = '#E0E0E0'
+export const blackColor = '#0A0A0A'

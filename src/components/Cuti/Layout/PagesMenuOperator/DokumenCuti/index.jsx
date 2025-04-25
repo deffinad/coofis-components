@@ -51,7 +51,7 @@ const DokumenCuti = ({config}) => {
                         <Grid2 size={{md:10, lg:10}}>
                             <Stack direction={'column'} spacing={2.5}>
                                 <CustomTextField placeholder={'Masukan pemohon'} padX={3} padY={1} fontSize={16}/>
-                                <CustomAutocomplete placeholder={'Masukan jenis cuti'} opsi={['SEMUA']}/>
+                                <CustomAutocomplete placeholder={'Masukan jenis cuti'} opsi={['SEMUA']} minWidth={'auto'}/>
                                 <RadioGroup row >
                                     <FormControlLabel value="SEMUA" control={<Radio />} label="SEMUA" sx={ FontStyle }/>
                                     <FormControlLabel value="Sedang Proses" control={<Radio />} label="Sedang Proses"  sx={ FontStyle }/>
@@ -59,7 +59,7 @@ const DokumenCuti = ({config}) => {
                                     <FormControlLabel value="Tidak Disetujui" control={<Radio />} label="Tidak Disetujui"  sx={ FontStyle }/>
                                 </RadioGroup>
                                 <CustomTextField placeholder={'Isi Periode'} padX={3} padY={1} fontSize={16}/>
-                                <CustomAutocomplete placeholder={'Masukan status pegawai'} opsi={['SEMUA']}/>
+                                <CustomAutocomplete placeholder={'Masukan status pegawai'} opsi={['SEMUA']} minWidth={'auto'}/>
                             </Stack>
                         </Grid2>
                     </Grid2>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, Box } from '@mui/material';
 import DropdownTampilkan from '../../components/Tampilkan';
-import InputSearchBar from '../../../../Inputs/InputSearchBar';
+import InputSearchBar from '../../../../Input/InputSearchBar';;
 import GenerateTable from '../../components/GenerateTable';
 import { DataTidakDisetujuiAnda } from './DocsTidakDisetujuiAnda';
 import { scrollbar } from '../../utils/scrollbar';

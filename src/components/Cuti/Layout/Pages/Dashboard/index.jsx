@@ -28,7 +28,7 @@ const Dashboard = () => {
                 </Stack>
             </Grid2>
             <Grid2 size = {{md: 2.5, lg: 2.5}} maxHeight = {'100%'}>
-                <Box minHeight={'100vh'}  backgroundColor= 'white' overflow= 'auto' sx ={{ boxShadow: '-5px 6px 8px rgba(0, 0, 0, 0.2), inset -3px 5px 6px rgba(0, 0, 0, 0.17)'}}  >
+                <Box minHeight={'100vh'}  backgroundColor= 'white' overflow= 'auto' sx ={{ boxShadow: '-5px 6px 8px rgba(0, 0, 0, 0.2)'}}  >
                     <Stack direction='column' p={3} sx={{ ...scrollbar('#E0E0E0'), maxHeight:'100vh', overflow: "auto"}} >
                         <Typography sx={{textAlign:'flex-start', fontSize: '17px', fontWeight: '700', fontFamily: style.fontFamily, color: style.primaryColor}}>Libur Nasional 2025</Typography>
                         <ListDate config = {DateData} />

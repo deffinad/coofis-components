@@ -1,14 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Stack, Typography, Box } from '@mui/material';
-import DropdownTampilkan from '../../components/Tampilkan';
-import InputSearchBar from '../../../../Input/InputSearchBar';
-import GenerateTable from '../../components/GenerateTable';
-import { stylingConfig } from '../../StylingConfig';
+import DropdownTampilkan from '@/components/Cuti/Layout/components/Tampilkan';
+import InputSearchBar from '@/components/Input/InputSearchBar';
+import GenerateTable from '@/components/Cuti/Layout/components/GenerateTable';
+import { fontFamily } from '@/shared/AppConst';
 import PencilIcon from '@mui/icons-material/CreateOutlined';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const PengaturanJenisCuti = ({config}) => {
-    const style = stylingConfig[0]
+const CardPengaturanJenisCuti = ({config}) => {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -17,7 +17,7 @@ const PengaturanJenisCuti = ({config}) => {
             <Box sx={{ maxHeight:'100%', backgroundColor:'white', borderRadius:3}}>
                 <Stack p = {4} direction='column' spacing = {2}>
                     <Stack direction={'row'} justifyContent={'space-between'} spacing={1}>
-                        <Typography fontFamily={style.fontFamily} color='black' fontWeight={'700'} fontSize={20}>Pengaturan Jenis Cuti</Typography>
+                        <Typography fontFamily={fontFamily} color='black' fontWeight={'700'} fontSize={20}>Pengaturan Jenis Cuti</Typography>
                         <Box
                             sx={{
                                 backgroundColor: "#3366FF",
@@ -28,14 +28,14 @@ const PengaturanJenisCuti = ({config}) => {
                                 display: "inline-flex",
                                 cursor: "pointer",
                                 width: "fit-content",
-                                fontFamily: style.fontFamily,
+                                fontFamily: fontFamily,
                                 alignItems: 'center',
                                 height: 'fit-content'
                             }}
-                            onClick={() => navigate(`${location.pathname}/ubahdatajeniscuti`)}
+                            // onClick={() => navigate(`${location.pathname}/ubahdatajeniscuti`)}
                             >
                                 <PencilIcon sx={{fontSize:12, mr:0.4}} />
-                                <Typography fontSize="12px" fontFamily={style.fontFamily}>
+                                <Typography fontSize="12px" fontFamily={fontFamily}>
                                     Ubah Data Jenis Cuti
                                 </Typography>
                         </Box>
@@ -51,4 +51,8 @@ const PengaturanJenisCuti = ({config}) => {
     )
 }
 
-export default PengaturanJenisCuti
+CardPengaturanJenisCuti.propTypes = {
+    config: PropTypes.object,
+}
+
+export default CardPengaturanJenisCuti

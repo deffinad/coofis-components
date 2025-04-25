@@ -3,7 +3,7 @@ import React from 'react';
 import { stylingConfig } from '../../../StylingConfig';
 import GenerateTable from '../../../components/GenerateTable';
 import DropdownTampilkan from '../../../components/Tampilkan';
-import InputSearchBar from '../../../../../Inputs/InputSearchBar';
+import InputSearchBar from '../../../../../Input/InputSearchBar';
 
 const style = stylingConfig[0]
 

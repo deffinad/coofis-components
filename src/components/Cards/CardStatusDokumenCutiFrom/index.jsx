@@ -1,15 +1,12 @@
-import React from 'react'
-import { Box, Stack, Grid2, Typography } from '@mui/material'
-import { stylingConfig } from '../../StylingConfig'
-import CustomAutocomplete from '../CustomAutocomplete'
+import React from "react"
+import PropTypes from 'prop-types'
+import { Box, Stack, Typography } from "@mui/material"
+import { fontFamily, blackColor } from "@/shared/AppConst"
 
-const StatusDokumenCuti = ({config}) => {
-
-    const style = stylingConfig[0];
-
+const CardStatusDokumenCutiForm = ({ config }) => {
     const FontStyle = {
-        color: style.primaryColor,
-        fontFamily: style.fontFamily, 
+        color: primaryColor,
+        fontFamily: fontFamily, 
         fontWeight: '400'
     };
     
@@ -25,12 +22,12 @@ const StatusDokumenCuti = ({config}) => {
     return (
         <Box sx={{height:'100%', backgroundColor: 'white', paddingBottom: 5, paddingTop: 2, paddingX: 3, borderRadius: 2, boxShadow: '1px 6px 8px rgba(0, 0, 0, 0.1)'}}>
             <Stack direction= 'column' spacing={3.5}>
-                <Typography sx={{fontSize:'20px', color:style.blackColor, fontFamily:style.fontFamily, fontWeight: '700'}}>Status Dokumen Cuti </Typography>
+                <Typography sx={{fontSize:'20px', color:blackColor, fontFamily:fontFamily, fontWeight: '700'}}>Status Dokumen Cuti </Typography>
                 {config.length > 0 && (
                     <Grid2 container spacing={3}>
                         <Grid2 item md={2.8} lg={2.8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 1.5 }}>
                             {config.map((item) => (
-                                <Typography key={item.id} sx={{ ...FontStyle, paddingY : item.title === 'Sub Jenis Cuti' ? 1 : 0 }}>
+                                <Typography key={item.id} sx={{ ...FontStyle, paddingY : item.opsi ? 1 : 0 }}>
                                     {item.title}:
                                 </Typography>
                             ))}
@@ -38,7 +35,7 @@ const StatusDokumenCuti = ({config}) => {
 
                         <Grid2 item md={9.2} lg={9.2} sx={{ display: 'flex', flexDirection: 'column', gap: 1.65}}>
                             {config.map((item) => (
-                                item.title === "Sub Jenis Cuti" ? (
+                                item.opsi ? (
                                     <CustomAutocomplete key= {item.id} id = {item.id} opsi={item.opsi} placeholder={item.placeholder}/>
                                 ) : item.Box ? (
                                     <Box key={item.id} sx={BoxColor(item.backColor, item.fontColor)} >
@@ -58,4 +55,11 @@ const StatusDokumenCuti = ({config}) => {
     )
 }
 
-export default StatusDokumenCuti
+CardStatusDokumenCutiForm.propTypes = {
+    title: PropTypes.string,
+    icon: PropTypes.string,
+    value: PropTypes.number,
+    color: PropTypes.string,
+}
+
+export default CardStatusDokumenCutiForm

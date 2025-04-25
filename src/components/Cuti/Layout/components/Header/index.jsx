@@ -33,7 +33,7 @@ const Header = () => {
                         src={Pict}
                         alt="Gambar"
                         sx={{ width: 180, height: 180, mt :-1.5, ml: 'auto'}}
-                        />;
+                        />
                     </Stack>
                 </Box>
             </Stack>

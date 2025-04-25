@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import ExpandLessIcon from '@mui/icons-material/ExpandLess'
+import React, { useState, useRef, useEffect } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Autocomplete, TextField } from '@mui/material'
 import { scrollbar } from '../utils/scrollbar'
@@ -12,11 +11,28 @@ const CustomAutocomplete = ({
     padX = 2.5,
     padY = 0,
     disableClear = true,
-    width = '100%', // default responsive
-    minWidth = 150  // pastikan cukup agar teks tidak terpotong
+    minWidth = 100,
+    multiline = false
 }) => {
     const [value, setValue] = useState(null)
     const [open, setOpen] = useState(false)
+    const [inputWidth, setInputWidth] = useState('auto')
+    const textRef = useRef(null)
+
+    // Calculate width based on text content
+    useEffect(() => {
+        if (textRef.current) {
+            const textLength = value ? value.length : placeholder ? placeholder.length : 0;
+            // Base width calculation on character count
+            // You may need to adjust these values based on your font
+            const charWidth = parseInt(fontSize) * 0.7;
+            const calculatedWidth = Math.max(
+                minWidth, 
+                (textLength * charWidth) + (padX * 2) + 48 // 48px for icon and padding
+            );
+            setInputWidth(`${calculatedWidth}px`);
+        }
+    }, [value, placeholder, fontSize, padX, minWidth]);
 
     return (
         <Autocomplete
@@ -30,27 +46,28 @@ const CustomAutocomplete = ({
             noOptionsText="Tidak ada pilihan"
             popupIcon={<ExpandMoreIcon />}
             disableClearable={disableClear}
-            fullWidth
+            fullWidth={false}
             sx={{
-                width,
-                minWidth, // <<< penting agar tidak terpotong
+                width: inputWidth,
+                minWidth: `${minWidth}px`,
             }}
             renderInput={(params) => (
                 <TextField
                     {...params}
-                    multiline={false}
+                    inputRef={textRef}
+                    multiline={multiline}
                     placeholder={placeholder}
                     variant="outlined"
                     sx={{
                         "& .MuiOutlinedInput-root": {
                             fontSize,
                             border: "1px solid #ccc",
-                            paddingY: padY,
+                            paddingY: `${padY}px !important`,
                             paddingX: padX,
                             borderRadius: "8px",
-                            whiteSpace: "nowrap",     // satu baris
+                            whiteSpace: "nowrap",
                             overflow: "hidden",
-                            textOverflow: "ellipsis", // potong jika kepanjangan
+                            textOverflow: "ellipsis",
                             boxShadow: placeholder === 'Pilih Jenis Cuti'
                                 ? '2px 4px 8px rgba(0,0,0,0.1)'
                                 : 'inset 2px 4px 8px rgba(0,0,0,0.1)',
@@ -77,7 +94,7 @@ const CustomAutocomplete = ({
                         boxShadow: "2px 4px 10px rgba(0,0,0,0.15)",
                         borderRadius: "8px",
                         fontSize,
-                        whiteSpace: 'nowrap' // tetap satu baris
+                        whiteSpace: 'nowrap'
                     }
                 },
                 listbox: {

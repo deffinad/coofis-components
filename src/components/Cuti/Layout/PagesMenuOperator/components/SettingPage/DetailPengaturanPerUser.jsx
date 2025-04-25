@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import CustomTextField from '../../../components/CustomTextField';
 import GenerateTable from '../../../components/GenerateTable';
 import DropdownTampilkan from '../../../components/Tampilkan';
-import InputSearchBar from '../../../../../Inputs/InputSearchBar';
+import InputSearchBar from '../../../../../Input/InputSearchBar';
 
 const style = stylingConfig[0]
 

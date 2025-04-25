@@ -73,6 +73,8 @@ const statusStyle = {
 };
 
 const GenerateTable = ({ config }) => {
+  const navigate = useNavigate()
+
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [checkedState, setCheckedState] = useState({});

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid2, Stack } from '@mui/material';
+import { Grid2, Stack, Box, Typography } from '@mui/material';
 import ToolButton from '../../../components/Document/ToolButton';
 import { stylingConfig } from '../../../StylingConfig';
 import StatusDokumenCuti from '../../../components/Document/StatusDokumenCuti';
