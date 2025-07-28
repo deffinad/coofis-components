@@ -15,17 +15,10 @@ const CustomCard = ({
 }) => {
   return (
     <Card 
-      sx={{ 
-        minWidth: 275, 
-        height: "100%",
-        borderRadius: 2, // Rounded corners yang lebih modern
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)', // Subtle shadow
+      sx={{  
+        height: "99%",
+        borderRadius: 2, 
         border: '1px solid rgba(0,0,0,0.08)', // Very light border
-        transition: 'all 0.3s ease-in-out', // Smooth transitions
-        '&:hover': {
-          boxShadow: '0 4px 16px rgba(0,0,0,0.15)', // Enhanced shadow on hover
-          transform: 'translateY(-2px)', // Subtle lift effect
-        }
       }}
     >
       <CardContent sx={{ pb: 2 }}> 

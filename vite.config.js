@@ -11,7 +11,6 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       //Module Expose
       exposes: {
-        './Ratings': './src/components/Ratings/index.jsx',
         './Inputs': '/src/components/Inputs/index.js',
         './Components': '/src/components/index.js'
       },
