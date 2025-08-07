@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 
-const Navbar = ({ title ,height, backgroundColor, textColor }) => {
+const Navbar = ({ title, backgroundColor, textColor }) => {
   return (
     <AppBar
       position={"static"}
       elevation={0}
       sx={{
         backgroundColor,
-        height,
+        height: "100%",
         borderBottom: "2px solid #f0f0f0",
         boxShadow: "none",
         transition: "all 0.3s ease",
@@ -32,7 +32,6 @@ const Navbar = ({ title ,height, backgroundColor, textColor }) => {
 // PropTypes sudah benar
 Navbar.propTypes = {
   title: PropTypes.string,
-  height: PropTypes.number,
   backgroundColor: PropTypes.string,
   textColor: PropTypes.string,
 };
@@ -40,7 +39,6 @@ Navbar.propTypes = {
 // defaultProps sudah benar
 Navbar.defaultProps = {
   title: "My Website",
-  height: 65,
   backgroundColor: "#ffffff",
   textColor: "#333333",
 };
